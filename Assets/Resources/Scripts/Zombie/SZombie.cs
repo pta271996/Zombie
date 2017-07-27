@@ -12,6 +12,8 @@ public class SZombie : MonoBehaviour {
 	protected float attackTime;// = 1.5f;
 	[SerializeField]
 	protected Animator myAnim;
+    [SerializeField]
+    protected Rigidbody2D myRB;
 
 	protected bool isAttacking;
 	protected bool isDead;
@@ -33,16 +35,24 @@ public class SZombie : MonoBehaviour {
 
 	public void getDamaged(int damage)
 	{
-		health -= damage;        
+		health -= damage;
+        myRB.AddForce(new Vector2(5.0f, 0.0f), ForceMode2D.Impulse);
+        Invoke("stopForce", 0.5f);
 		if (health <= 0)
 			makeDead ();
 	}
+
+    public void stopForce()
+    {
+        myRB.velocity = Vector2.zero;
+    }
 
 	public void makeDead()
 	{
 		isDead = true;
         Destroy(gameObject.GetComponent<CircleCollider2D>());
         Destroy(gameObject.GetComponent<BoxCollider2D>());
+        stopForce();
 		myAnim.SetBool("isDead",true);
 		Destroy (gameObject, 2.0f);
 	}

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SBulletA : SBullet {
 
+    public GameObject bloodHit;
+
 	void Awake(){
 
 	}
@@ -24,6 +26,7 @@ public class SBulletA : SBullet {
 	{
 		if (otherColl.tag == "zombie") 
 		{
+            Instantiate(bloodHit, new Vector2(transform.position.x-0.15f,transform.position.y), bloodHit.transform.rotation);
 			Destroy(gameObject);
 		}
 	}
