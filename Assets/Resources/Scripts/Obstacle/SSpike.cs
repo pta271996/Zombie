@@ -30,6 +30,10 @@ public class SSpike : SObstacle
 				startTimeBeingAttacked = Time.time + enemyAttackTime;
 			}
 		}
+        else
+        {
+            woodDustPS.SetActive(false);
+        }
 	}
 
 
@@ -53,7 +57,7 @@ public class SSpike : SObstacle
 	{
 		if (otherColl.tag == "zombie") 
 		{
-			isBeingAttacked = true;
+			//isBeingAttacked = true;
 			if(isDead)
 			{
 				if(otherColl.gameObject.GetComponent<SZombie>())
@@ -69,6 +73,7 @@ public class SSpike : SObstacle
 	{
 		if (otherColl.tag == "zombie") 
 		{
+            Debug.Log("Exit");
 			isBeingAttacked = false;
 		}
 	}
