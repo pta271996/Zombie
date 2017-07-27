@@ -46,8 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Resources\Scripts\Background\SBackgound.cs" />
+     <Compile Include="Assets\Resources\Scripts\Background\SHalloweenBG.cs" />
+     <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
+     <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletController.cs" />
+     <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\Obstacle\SObstacle.cs" />
+     <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />
+     <Compile Include="Assets\Resources\Scripts\Singleton.cs" />
      <Compile Include="Assets\Resources\Scripts\SpikeController.cs" />
+     <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />
+     <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

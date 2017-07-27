@@ -33,7 +33,7 @@ public class SZombie : MonoBehaviour {
 
 	public void getDamaged(int damage)
 	{
-		health -= damage;
+		health -= damage;        
 		if (health <= 0)
 			makeDead ();
 	}
@@ -41,6 +41,8 @@ public class SZombie : MonoBehaviour {
 	public void makeDead()
 	{
 		isDead = true;
+        Destroy(gameObject.GetComponent<CircleCollider2D>());
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
 		myAnim.SetBool("isDead",true);
 		Destroy (gameObject, 2.0f);
 	}
