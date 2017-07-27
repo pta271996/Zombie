@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SSpike : SObstacle {
+public class SSpike : SObstacle 
+{
+    public GameObject woodDustPS;
+
 	void Awake(){
 		state = 1;
 		isBeingAttacked = false;
@@ -19,6 +22,8 @@ public class SSpike : SObstacle {
 	{
 		if (isBeingAttacked) 
 		{
+            woodDustPS.SetActive(true);
+
 			if(Time.time >= startTimeBeingAttacked)
 			{
 				getDamaged();
@@ -32,12 +37,15 @@ public class SSpike : SObstacle {
 	{
 		if (otherColl.tag == "zombie") 
 		{
-			isBeingAttacked = true;
-			if(otherColl.gameObject.GetComponent<SZombie>())
-			{
-				enemyAttackTime = otherColl.gameObject.GetComponent<SZombie>().getAttackTime();
-				startTimeBeingAttacked = Time.time + enemyAttackTime;
-			}
+            if(!isBeingAttacked)
+            {
+                isBeingAttacked = true;
+                if (otherColl.gameObject.GetComponent<SZombie>())
+                {
+                    enemyAttackTime = otherColl.gameObject.GetComponent<SZombie>().getAttackTime();
+                    startTimeBeingAttacked = Time.time + enemyAttackTime;
+                }
+            }		
 		}
 	}
 
