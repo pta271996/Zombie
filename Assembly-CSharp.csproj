@@ -51,6 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SBackgound.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SHalloweenBG.cs" />
      <Compile Include="Assets\Resources\Scripts\BloodHitController.cs" />
@@ -66,6 +73,8 @@
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieController.cs" />
+     <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
+     <None Include="Assets\RainMaker\Readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

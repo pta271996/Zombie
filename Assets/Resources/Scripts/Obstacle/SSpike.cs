@@ -57,7 +57,8 @@ public class SSpike : SObstacle
 	{
 		if (otherColl.tag == "zombie") 
 		{
-			//isBeingAttacked = true;
+            if(!isBeingAttacked)
+			    isBeingAttacked = true;
 			if(isDead)
 			{
 				if(otherColl.gameObject.GetComponent<SZombie>())
