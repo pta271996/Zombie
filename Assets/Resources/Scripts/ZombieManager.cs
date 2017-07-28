@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class ZombieAndLevel {
+public class ZombieTypeAndLevel {
 	public GameObject zombie;
 	public int level;
 }
@@ -14,7 +14,7 @@ public class ZombieManager :Singleton<ZombieManager> {
 	public float maxYPosition; //vi tri cao nhat zombie co the xuat hien truc Y
 	public float minYPosition; //vitri thap nhat zombie co the xuat hien truc Y
 	public float maxXPosition; // vi tri zombie xuat hien theo truc X (thong thuong xa nhat man hinh )
-	public ZombieAndLevel[] zombies;
+	public ZombieTypeAndLevel[] zombieTypes;
 
 	//danh sach zombie duoc khoi tao
 	private List<SZombie> zombiesList;
@@ -34,7 +34,7 @@ public class ZombieManager :Singleton<ZombieManager> {
 		
 		float posY = randomPositionY (minYPosition, maxYPosition, 0.2f);
 		int type = randomTypeZombie ();
-		GameObject cloneZombie = createZombie (zombies [type].zombie, new Vector3 (maxXPosition,posY,zombies [type].zombie.transform.position.z ));
+		GameObject cloneZombie = createZombie (zombieTypes[type].zombie, new Vector3 (maxXPosition,posY,zombieTypes[type].zombie.transform.position.z ));
 		cloneZombie.transform.localScale = new Vector3 (cloneZombie.transform.localScale.x * -1, cloneZombie.transform.localScale.y, cloneZombie.transform.localScale.z);
 		cloneZombie.transform.SetParent (parentTranform);
 
@@ -43,7 +43,7 @@ public class ZombieManager :Singleton<ZombieManager> {
 		zombiesList.Add (cloneZombie.GetComponent<SZombie> ());
 
 		//Setup cac thuoc tinh cho zombie theo level
-		zombieScript.SetUp(zombies[type].level);
+		zombieScript.SetUp(zombieTypes[type].level);
 
 		yield return new WaitForSeconds (2.5f);
 		if(zombiesList.Count < numberZombie)
@@ -65,7 +65,7 @@ public class ZombieManager :Singleton<ZombieManager> {
 
 	}
 	int randomTypeZombie(){
-		int number = zombies.Length;
+		int number = zombieTypes.Length;
 		int rand = Random.Range (0, number);
 		return rand;
 	}
