@@ -15,13 +15,8 @@ public class SZombie : MonoBehaviour {
     [SerializeField]
     protected Rigidbody2D myRB;
 
-	protected int levelPower;   //level Power la cac muc suc manh cua zombie se duoc dieu chinh tuy vao man choi
-								// thong thuong se tang levelPower khi man choi cang kho hon
-								// bien nay se duoc chinh trong ham SetUp();
-
 	protected bool isAttacking;
 	protected bool isDead;
-
 
 	public void Move()
 	{
@@ -84,23 +79,5 @@ public class SZombie : MonoBehaviour {
 		set{
 			this.attackTime = value;
 		}
-	}
-
-	public int LevelPower {
-		get{
-			return this.levelPower;
-		}
-		set{
-			this.levelPower = value;
-		}
-
-	}
-
-	//ham setup se tinh toan suc manh cua zombie dua theo level cua no
-	//ham SetUp duoc tham chieu trong ham summon() cua lop ZombieManager khi khoi tao man choi va sinh ra zombie
-	public void SetUp(int level){
-		this.levelPower = level;
-		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
-
 	}
 }

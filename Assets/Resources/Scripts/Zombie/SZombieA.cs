@@ -13,7 +13,6 @@ public class SZombieA :SZombie {
 	// Use this for initialization
 	void Start () 
 	{
-		
 		//speed = 4.0f;
 		//health = 2;
 	

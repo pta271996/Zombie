@@ -1,20 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\Obstacle\SSpike.cs">
     <Files>
-      <File FileName="Assets\Resources\Scripts\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\GameManager.cs" Line="9" Column="51" />
-      <File FileName="Assets\Resources\Scripts\CameraController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Background\SHalloweenBG.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Background\SBackgound.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Bullet\SBulletA.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Bullet\SBullet.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Zombie\SZombie.cs" Line="88" Column="2" />
-      <File FileName="Assets\Resources\Scripts\Zombie\SZombieA.cs" Line="15" Column="3" />
-      <File FileName="Assets\Resources\Scripts\Obstacle\SSpike.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\Obstacle\SObstacle.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\BloodHitController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\ZombieManager.cs" Line="63" Column="39" />
+      <File FileName="Assets\Resources\Scripts\Singleton.cs" Line="11" Column="16" />
+      <File FileName="Assets\Resources\Scripts\GameManager.cs" Line="7" Column="32" />
+      <File FileName="Assets\Resources\Scripts\CameraController.cs" Line="10" Column="2" />
+      <File FileName="Assets\Resources\Scripts\Background\SHalloweenBG.cs" Line="6" Column="32" />
+      <File FileName="Assets\Resources\Scripts\Background\SBackgound.cs" Line="7" Column="2" />
+      <File FileName="Assets\Resources\Scripts\Bullet\SBulletA.cs" Line="17" Column="3" />
+      <File FileName="Assets\Resources\Scripts\Bullet\SBullet.cs" Line="11" Column="21" />
+      <File FileName="Assets\Resources\Scripts\Zombie\SZombie.cs" Line="14" Column="28" />
+      <File FileName="Assets\Resources\Scripts\Zombie\SZombieA.cs" Line="12" Column="3" />
+      <File FileName="Assets\Resources\Scripts\Obstacle\SSpike.cs" Line="29" Column="2" />
+      <File FileName="Assets\Resources\Scripts\Obstacle\SObstacle.cs" Line="31" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
