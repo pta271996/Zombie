@@ -9,6 +9,8 @@ public class SObstacle : MonoBehaviour {
 	protected bool isBeingAttacked;
 	protected float startTimeBeingAttacked;
 	protected float enemyAttackTime;
+
+	protected int level;
 	// Use this for initialization
 	public void getDamaged()
 	{
@@ -37,6 +39,12 @@ public class SObstacle : MonoBehaviour {
 
 	public void NotifyDeath()
 	{
+
+	}
+
+	public virtual void SetUp(int level){
+		this.level = level;
+		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
 
 	}
 

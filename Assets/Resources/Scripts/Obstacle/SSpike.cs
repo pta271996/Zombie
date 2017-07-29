@@ -78,4 +78,12 @@ public class SSpike : SObstacle
 			isBeingAttacked = false;
 		}
 	}
+
+	public override void SetUp(int level){
+
+		base.SetUp (level);
+		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
+		Debug.Log("Create Spike success");
+	}
+
 }

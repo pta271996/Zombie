@@ -66,6 +66,11 @@ public class SZombieA :SZombie {
 			myAnim.SetBool("isAttacking",false);
 		}
 	}
-
+	public override void SetUp(int level){
+		
+		base.SetUp (level);
+		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
+		Debug.Log("Create ZombieA success");
+	}
 
 }

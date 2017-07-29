@@ -98,7 +98,7 @@ public class SZombie : MonoBehaviour {
 
 	//ham setup se tinh toan suc manh cua zombie dua theo level cua no
 	//ham SetUp duoc tham chieu trong ham summon() cua lop ZombieManager khi khoi tao man choi va sinh ra zombie
-	public void SetUp(int level){
+	public virtual void SetUp(int level){
 		this.levelPower = level;
 		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
 

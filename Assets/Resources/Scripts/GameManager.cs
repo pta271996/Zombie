@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager> {
 	}
 	// Use this for initialization
 	void Start () {
-		ZombieManager.Instance.Init ();
+
 	}
 
 	// Update is called once per frame
