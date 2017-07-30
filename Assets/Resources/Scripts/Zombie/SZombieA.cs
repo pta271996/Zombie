@@ -45,6 +45,12 @@ public class SZombieA :SZombie {
 					Debug.Log ("current damage : " + damage);
 					getDamaged(damage);
 				}
+                if (otherColl.gameObject.GetComponent<RayController>())
+                {
+                    int damage = otherColl.gameObject.GetComponent<RayController>().getDamage();
+                    Debug.Log("current damage : " + damage);
+                    getDamaged(damage);
+                }
 			}
 		}
 	}

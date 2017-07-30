@@ -31,7 +31,7 @@ public class TankController : MonoBehaviour {
     void Shoot()
     {
         Instantiate(bullet,turretTip.position,bullet.transform.rotation);
-        Instantiate(fire, turretTip.position, bullet.transform.rotation);
+        Instantiate(fire, turretTip.position, fire.transform.rotation);
         fire.SetActive(true);
     }
 }
