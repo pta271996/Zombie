@@ -38,9 +38,11 @@ public class Level1 : Singleton<Level1>, RandomInterface{
 
 		for (int i = 0; i < maxCount; i++) {
 			float posY = ObstacleManager.Instance.maxYPosition -  i * 0.4f;
+			float posX = ObstacleManager.Instance.minXPosition + (maxCount - i - 1) * 0.3f;
 			int type = Random.Range (0, ObstacleManager.Instance.obstacleTypes.Length);
-			GameObject cloneObstacle = ObstacleManager.Instance.createObstacle ( ObstacleManager.Instance.obstacleTypes[type].obstacle, new Vector3 ( ObstacleManager.Instance.maxXPosition,posY, ObstacleManager.Instance.obstacleTypes[type].obstacle.transform.position.z ));
+			GameObject cloneObstacle = ObstacleManager.Instance.createObstacle ( ObstacleManager.Instance.obstacleTypes[type].obstacle, new Vector3 ( posX,posY, ObstacleManager.Instance.obstacleTypes[type].obstacle.transform.position.z ));
 			cloneObstacle.transform.localScale = new Vector3 (cloneObstacle.transform.localScale.x * -1, cloneObstacle.transform.localScale.y, cloneObstacle.transform.localScale.z);
+			cloneObstacle.GetComponent<SpriteRenderer> ().sortingOrder = i + 1;
 			cloneObstacle.transform.SetParent ( ObstacleManager.Instance.parentTranform);
 
 			//get script

@@ -14,7 +14,7 @@ public class ObstacleManager : Singleton<ObstacleManager>  {
 	//public int numberObstacle;//so luong zombie
 	public float maxYPosition; //vi tri cao nhat zombie co the xuat hien truc Y
 	public float minYPosition; //vitri thap nhat zombie co the xuat hien truc Y
-	public float maxXPosition; // vi tri zombie xuat hien theo truc X (thong thuong xa nhat man hinh )
+	public float minXPosition; // vi tri zombie xuat hien theo truc X (thong thuong xa nhat man hinh )
 	public ObstacleTypeAndLevel[] obstacleTypes;
 
 	//danh sach zombie duoc khoi tao

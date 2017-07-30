@@ -10,7 +10,7 @@ public class SBullet : MonoBehaviour {
 
 	public float speed;
 	public int damage;
-	public void Move()
+	public virtual void Move()
 	{
 		transform.position += Vector3.right * Time.deltaTime * speed;
 	}

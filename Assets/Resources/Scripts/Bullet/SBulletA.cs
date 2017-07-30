@@ -20,7 +20,11 @@ public class SBulletA : SBullet {
 		Move ();
 	}
 		
-
+	public override void Move()
+	{
+		base.Move ();
+		//transform.position += Vector3.right * Time.deltaTime * speed;
+	}
 	//ham trigger thi tuy theo loai bullet ma ta se xu ly
 	void OnTriggerEnter2D(Collider2D otherColl)
 	{

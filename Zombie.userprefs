@@ -1,10 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\SelfDestruction.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\Scripts\Bullet\SRay.cs">
     <Files>
       <File FileName="Assets\Resources\Scripts\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Resources\Scripts\TankController.cs" Line="19" Column="2" />
-      <File FileName="Assets\Resources\Scripts\SelfDestruction.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\TankController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\SpaceShipController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\ObstacleManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Level\Level1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Level\Level2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Resources\Scripts\Bullet\SRay.cs" Line="14" Column="29" />
+      <File FileName="Assets\Resources\Scripts\Zombie\SZombieA.cs" Line="50" Column="73" />
+      <File FileName="Assets\Resources\Scripts\Bullet\SBullet.cs" Line="16" Column="3" />
+      <File FileName="Assets\Resources\Scripts\Bullet\SBulletA.cs" Line="27" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
