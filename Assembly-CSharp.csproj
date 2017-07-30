@@ -69,6 +69,7 @@
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
      <Compile Include="Assets\Resources\Scripts\Interface\RandomInterface.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level1.cs" />
+     <Compile Include="Assets\Resources\Scripts\Obstacle\SMetalBlock.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SObstacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />

@@ -10,6 +10,8 @@ public class SObstacle : MonoBehaviour {
 	protected float startTimeBeingAttacked;
 	protected float enemyAttackTime;
 
+    public string strSpriteName;
+
 	protected int level;
 	// Use this for initialization
 	public void getDamaged()
@@ -27,9 +29,11 @@ public class SObstacle : MonoBehaviour {
 
 	public void loadStateSprite()
 	{
-		string strState = "wooden_spike_state" + state.ToString () ;
+        string strState = strSpriteName + state.ToString();
 		gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Graphic/Obstacles/" + strState);
 	}
+
+
 
 	public void makeDead()
 	{
