@@ -13,6 +13,7 @@ public class SObstacle : MonoBehaviour {
     public string strSpriteName;
 
 	protected int level;
+	protected int line;
 	// Use this for initialization
 	public void getDamaged()
 	{
@@ -46,10 +47,19 @@ public class SObstacle : MonoBehaviour {
 
 	}
 
-	public virtual void SetUp(int level){
+	public virtual void SetUp(int level, int line){
 		this.level = level;
+		this.line = line;
 		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
 
 	}
+	public int Line {
+		get{
+			return this.line ;
+		}
+		set{
+			this.line = value;
+		}
 
+	}
 }

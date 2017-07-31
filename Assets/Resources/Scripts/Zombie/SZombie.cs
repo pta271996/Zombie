@@ -22,6 +22,7 @@ public class SZombie : MonoBehaviour {
 	protected bool isAttacking;
 	protected bool isDead;
 
+	protected int line;
 
 	public void Move()
 	{
@@ -95,11 +96,21 @@ public class SZombie : MonoBehaviour {
 		}
 
 	}
+	public int Line {
+		get{
+			return this.line ;
+		}
+		set{
+			this.line = value;
+		}
+
+	}
 
 	//ham setup se tinh toan suc manh cua zombie dua theo level cua no
 	//ham SetUp duoc tham chieu trong ham summon() cua lop ZombieManager khi khoi tao man choi va sinh ra zombie
-	public virtual void SetUp(int level){
+	public virtual void SetUp(int level, int line){
 		this.levelPower = level;
+		this.line = line;
 		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
 
 	}

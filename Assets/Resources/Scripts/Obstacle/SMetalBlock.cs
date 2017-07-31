@@ -82,11 +82,11 @@ public class SMetalBlock : SObstacle
         }
     }
 
-    public override void SetUp(int level)
+	public override void SetUp(int level, int line)
     {
 
-        base.SetUp(level);
+        base.SetUp(level, line);
         //ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
-        Debug.Log("Create Block success");
+       // Debug.Log("Create Block success");
     }
 }

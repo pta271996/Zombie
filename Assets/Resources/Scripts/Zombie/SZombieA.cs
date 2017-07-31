@@ -31,8 +31,11 @@ public class SZombieA :SZombie {
 	{
 		if (otherColl.tag == "obstacle") 
 		{
-			isAttacking = true;
-			myAnim.SetBool("isAttacking",true);
+			if (otherColl.gameObject.GetComponent<SObstacle> ().Line == this.line) {
+				
+				isAttacking = true;
+				myAnim.SetBool ("isAttacking", true);
+			}
 		}
 
 		if (otherColl.tag == "bullet") 
@@ -42,13 +45,13 @@ public class SZombieA :SZombie {
 				if(otherColl.gameObject.GetComponent<SBullet>())
 				{
 					int damage = otherColl.gameObject.GetComponent<SBullet>().getDamage();
-					Debug.Log ("current damage : " + damage);
+					//Debug.Log ("current damage : " + damage);
 					getDamaged(damage);
 				}
 				if (otherColl.gameObject.GetComponent<SRay>())
                 {
 					int damage = otherColl.gameObject.GetComponent<SRay>().getDamage();
-                    Debug.Log("current damage : " + damage);
+                   // Debug.Log("current damage : " + damage);
                     getDamaged(damage);
                 }
 			}
@@ -72,11 +75,11 @@ public class SZombieA :SZombie {
 			myAnim.SetBool("isAttacking",false);
 		}
 	}
-	public override void SetUp(int level){
+	public override void SetUp(int level, int line){
 		
-		base.SetUp (level);
+		base.SetUp (level, line);
 		//ta se set up health, dameattack, attackspeed ,... cua zombie trong ham nay tuy theo level
-		Debug.Log("Create ZombieA success");
+		//Debug.Log("Create ZombieA success");
 	}
 
 }
