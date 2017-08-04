@@ -72,6 +72,7 @@
      <Compile Include="Assets\Resources\Scripts\Effect\Rotate.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\SelfDestruction.cs" />
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\GunController.cs" />
      <Compile Include="Assets\Resources\Scripts\Interface\RandomInterface.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level1.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level2.cs" />
