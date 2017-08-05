@@ -63,7 +63,7 @@ public class GunController : MonoBehaviour {
     public void Shoot()
     {
         Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        Instantiate(muzzleFlash, shootPos.position, bullet.transform.rotation);
+        Instantiate(muzzleFlash, shootPos.position, muzzleFlash.transform.rotation);
     }
 
 }
