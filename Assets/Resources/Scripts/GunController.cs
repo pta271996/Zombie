@@ -17,7 +17,7 @@ public class GunController : MonoBehaviour {
 	void Start () 
     {
         setNormalAngle();
-        setAttackAngle();
+        //setAttackAngle();
 	}
 	
 	// Update is called once per frame

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
-
     public float speed;
     public Animator myAnim;
     public Rigidbody2D myRB;   
@@ -18,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool isGettingHurted;
     private float attackTime;
     private float attackDuration;
+    private GameObject myWeapon;
 
 
 	// Use this for initialization
@@ -28,9 +28,10 @@ public class PlayerController : MonoBehaviour
         isGettingHurted = false;
 
         attackTime = 0.0f;
-        attackTime = 0.8f;
+        attackDuration = 0.8f;
 
-        Instantiate(weapon, normalWeaponPos.position, weapon.transform.rotation);
+        myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
+
         setNormalWeaponAttributes();
 	}
 	
@@ -82,21 +83,24 @@ public class PlayerController : MonoBehaviour
 
     void setNormalWeaponAttributes()
     {
-        weapon.GetComponent<GunController>().setNormalAngle();
-        weapon.GetComponent<GunController>().setNormalLayerOrder();
-        weapon.GetComponent<GunController>().setNormalPosition(normalWeaponPos);
+        myWeapon.transform.position = normalWeaponPos.position;
+        myWeapon.transform.parent = normalWeaponPos;
+        myWeapon.GetComponent<GunController>().setNormalAngle();
+        myWeapon.GetComponent<GunController>().setNormalLayerOrder();     
     }
 
     void setAttackWeaponAttributes()
     {
-        weapon.GetComponent<GunController>().setAttackAngle();
-        weapon.GetComponent<GunController>().setAttackLayerOrder();
-        weapon.GetComponent<GunController>().setAttackPosition(attackWeaponPos);
+        Debug.Log("Attack!!");
+        myWeapon.transform.position = attackWeaponPos.position;
+        myWeapon.transform.parent = attackWeaponPos;
+        myWeapon.GetComponent<GunController>().setAttackAngle();
+        myWeapon.GetComponent<GunController>().setAttackLayerOrder();
     }
 
     void Shoot()
     {
-        weapon.GetComponent<GunController>().Shoot();
+        myWeapon.GetComponent<GunController>().Shoot();
     }
 
 }
