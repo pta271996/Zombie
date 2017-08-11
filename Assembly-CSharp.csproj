@@ -86,6 +86,7 @@
      <Compile Include="Assets\Resources\Scripts\TankController.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
+     <Compile Include="Assets\Resources\Scripts\Zombie\SZombieFam.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieManager.cs" />
      <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
      <None Include="Assets\RainMaker\Readme.txt" />

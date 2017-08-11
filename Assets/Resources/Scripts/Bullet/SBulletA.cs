@@ -29,7 +29,18 @@ public class SBulletA : SBullet {
 	void OnTriggerEnter2D(Collider2D otherColl)
 	{
 		if (otherColl.tag == "zombie") 
-		{
+		{         
+            if (otherColl is BoxCollider2D)
+            {
+                if (otherColl.gameObject.GetComponent<SZombieFam>())
+                    otherColl.gameObject.GetComponent<SZombieFam>().setDead();
+            }
+            else if (otherColl is CircleCollider2D)
+            {
+                if (otherColl.gameObject.GetComponent<SZombieFam>())
+                    otherColl.gameObject.GetComponent<SZombieFam>().setDeadByHeadShot();
+            }
+
             Instantiate(bloodHit, new Vector2(transform.position.x-0.15f,transform.position.y), bloodHit.transform.rotation);
 			Destroy(gameObject);
 		}

@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         attackDuration = 0.8f;
 
         myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
-
         setNormalWeaponAttributes();
 	}
 	
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isRunning", isRunning);
             Move(-0.08f, -0.1f);
         }
-        else if(Input.GetKeyDown(KeyCode.K))
+        else if(Input.GetKeyDown(KeyCode.K) && !isAttacking)
         {
             isAttacking = true;
             isRunning = false;
@@ -91,7 +90,6 @@ public class PlayerController : MonoBehaviour
 
     void setAttackWeaponAttributes()
     {
-        Debug.Log("Attack!!");
         myWeapon.transform.position = attackWeaponPos.position;
         myWeapon.transform.parent = attackWeaponPos;
         myWeapon.GetComponent<GunController>().setAttackAngle();

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
 
-    //public Transform normalPos;
-    //public Transform attackPos;
     public Transform shootPos;
     public float normalAngle;
     public float attackAngle;
@@ -17,7 +15,6 @@ public class GunController : MonoBehaviour {
 	void Start () 
     {
         setNormalAngle();
-        //setAttackAngle();
 	}
 	
 	// Update is called once per frame
@@ -50,13 +47,11 @@ public class GunController : MonoBehaviour {
 
     public void setNormalPosition(Transform normalPos)
     {
-        //transform.position = normalPos.position;
         transform.parent = normalPos;
     }
 
     public void setAttackPosition(Transform attackPos)
     {
-        //transform.position = attackPos.position;
         transform.parent = attackPos;
     }
 

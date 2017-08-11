@@ -41,17 +41,15 @@ public class SZombieA :SZombie {
 		if (otherColl.tag == "bullet") 
 		{
 			if(!isDead)
-			{
+			{                                
 				if(otherColl.gameObject.GetComponent<SBullet>())
 				{
 					int damage = otherColl.gameObject.GetComponent<SBullet>().getDamage();
-					//Debug.Log ("current damage : " + damage);
 					getDamaged(damage);
 				}
 				if (otherColl.gameObject.GetComponent<SRay>())
                 {
 					int damage = otherColl.gameObject.GetComponent<SRay>().getDamage();
-                   // Debug.Log("current damage : " + damage);
                     getDamaged(damage);
                 }
 			}

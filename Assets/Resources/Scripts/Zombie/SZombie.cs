@@ -21,6 +21,8 @@ public class SZombie : MonoBehaviour {
 
 	protected bool isAttacking;
 	protected bool isDead;
+    protected bool isDeadByNormalShot;
+    protected bool isDeadByHeadShot;
 
 	protected int line;
 
@@ -39,10 +41,22 @@ public class SZombie : MonoBehaviour {
 		myAnim.SetBool("isAttacking",false);
 	}
 
+    public void setDead()
+    {
+        isDeadByNormalShot = true;
+        isDeadByHeadShot = false;
+    }
+
+    public void setDeadByHeadShot()
+    {
+        isDeadByHeadShot = true;
+        isDeadByNormalShot = false;
+    }
+
 	public void getDamaged(int damage)
 	{
 		health -= damage;
-		myRB.AddForce(new Vector2(5.0f, 0.0f), ForceMode2D.Impulse);
+		myRB.AddForce(new Vector2(3.5f, 0.0f), ForceMode2D.Impulse);
 		Invoke("stopForce", 0.5f);
 		if (health <= 0)
 			makeDead ();
@@ -59,7 +73,10 @@ public class SZombie : MonoBehaviour {
 		Destroy(gameObject.GetComponent<CircleCollider2D>());
 		Destroy(gameObject.GetComponent<BoxCollider2D>());
 		stopForce();
-		myAnim.SetBool("isDead",true);
+        if (isDeadByNormalShot)
+		    myAnim.SetBool("isDead",true);
+        else if(isDeadByHeadShot)
+            myAnim.SetBool("isDeadByHeadShot", true);
 		Destroy (gameObject, 2.0f);
 	}
 	public float Speech{
