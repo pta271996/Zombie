@@ -10,6 +10,7 @@ public class SZombieFam : SZombie
         isAttacking = false;
         isDead = false;
         isDeadByHeadShot = false;
+        isDeadByBoom = false;
         //speed = 4.0f;
         //health = 2;
         //attackTime = 1.5f;
@@ -57,6 +58,14 @@ public class SZombieFam : SZombie
                     int damage = otherColl.gameObject.GetComponent<SRay>().getDamage();
                     getDamaged(damage);
                 }
+            }
+        }
+
+        if (otherColl.tag == "grenade")
+        {
+            if (!isDead)
+            {
+                getDamaged(10);
             }
         }
     }

@@ -23,6 +23,7 @@ public class SZombie : MonoBehaviour {
 	protected bool isDead;
     protected bool isDeadByNormalShot;
     protected bool isDeadByHeadShot;
+    protected bool isDeadByBoom;
 
 	protected int line;
 
@@ -45,12 +46,21 @@ public class SZombie : MonoBehaviour {
     {
         isDeadByNormalShot = true;
         isDeadByHeadShot = false;
+        isDeadByBoom = false;
     }
 
     public void setDeadByHeadShot()
     {
         isDeadByHeadShot = true;
         isDeadByNormalShot = false;
+        isDeadByBoom = false;
+    }
+
+    public void setDeadByBoom()
+    {
+        isDeadByBoom = true;
+        isDeadByNormalShot = false;
+        isDeadByHeadShot = false;
     }
 
 	public void getDamaged(int damage)
@@ -77,6 +87,8 @@ public class SZombie : MonoBehaviour {
 		    myAnim.SetBool("isDead",true);
         else if(isDeadByHeadShot)
             myAnim.SetBool("isDeadByHeadShot", true);
+        else if(isDeadByBoom)
+            myAnim.SetBool("isDeadByBoom", true);
 		Destroy (gameObject, 2.0f);
 	}
 	public float Speech{

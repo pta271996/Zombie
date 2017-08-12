@@ -9,15 +9,21 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRB;   
     public GameObject extraBodyParts;
     public GameObject weapon;
+    public GameObject myGrenade;
     public Transform normalWeaponPos;
     public Transform attackWeaponPos;
+    public Transform throwPos;
 
     private bool isRunning;
     private bool isAttacking;
     private bool isGettingHurted;
+    private bool isThrowing;
     private float attackTime;
     private float attackDuration;
+    private float throwTime;
+    private float throwDuration;
     private GameObject myWeapon;
+    
 
 
 	// Use this for initialization
@@ -26,9 +32,12 @@ public class PlayerController : MonoBehaviour
         isRunning = false;
         isAttacking = false;
         isGettingHurted = false;
+        isThrowing = false;
 
         attackTime = 0.0f;
         attackDuration = 0.8f;
+        throwTime = 0.0f;
+        throwDuration = 0.8f;
 
         myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
         setNormalWeaponAttributes();
@@ -44,6 +53,11 @@ public class PlayerController : MonoBehaviour
             extraBodyParts.SetActive(false);
             setNormalWeaponAttributes();
         }
+        if(Time.time >= throwTime && isThrowing)
+        {
+            isThrowing = false;
+            myAnim.SetBool("isThrowing", isThrowing);
+        }
 
 		if(Input.GetKey(KeyCode.W))
         {
@@ -57,7 +71,7 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isRunning", isRunning);
             Move(-0.08f, -0.1f);
         }
-        else if(Input.GetKeyDown(KeyCode.K) && !isAttacking)
+        else if(Input.GetKeyDown(KeyCode.K) && !isAttacking && !isThrowing)
         {
             isAttacking = true;
             isRunning = false;
@@ -66,6 +80,14 @@ public class PlayerController : MonoBehaviour
             extraBodyParts.SetActive(true);
             setAttackWeaponAttributes();
             Shoot();
+        }
+        else if(Input.GetKeyDown(KeyCode.T) && !isThrowing && !isAttacking)
+        {
+            isThrowing = true;
+            isRunning = false;
+            myAnim.SetBool("isThrowing", isThrowing);
+            throwTime = Time.time + throwDuration;
+            Invoke("Throw", 0.5f);
         }
         else
         {
@@ -99,6 +121,11 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         myWeapon.GetComponent<GunController>().Shoot();
+    }
+
+    void Throw()
+    {
+        Instantiate(myGrenade, throwPos.position, Quaternion.identity);
     }
 
 }
