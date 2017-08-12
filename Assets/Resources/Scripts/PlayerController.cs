@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject extraBodyParts;
     public GameObject weapon;
     public GameObject myGrenade;
+    public GameObject ground;
     public Transform normalWeaponPos;
     public Transform attackWeaponPos;
     public Transform throwPos;
@@ -126,6 +127,7 @@ public class PlayerController : MonoBehaviour
     void Throw()
     {
         Instantiate(myGrenade, throwPos.position, Quaternion.identity);
+        Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 
 }
