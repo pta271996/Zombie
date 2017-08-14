@@ -60,7 +60,7 @@ public class GunController : MonoBehaviour {
     {
         Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         Instantiate(muzzleFlash, shootPos.position, muzzleFlash.transform.rotation);
-        Instantiate(bulletShell, shootPos.position, Quaternion.identity);
+        Instantiate(bulletShell, new Vector3(shootPos.position.x,shootPos.position.y,0.0f), bulletShell.transform.rotation);
     }
 
 }
