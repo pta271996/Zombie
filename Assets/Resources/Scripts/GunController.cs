@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour {
     public float attackAngle;
     public GameObject bullet;
     public GameObject muzzleFlash;
+    public GameObject bulletShell;
 
 
 	// Use this for initialization
@@ -59,6 +60,7 @@ public class GunController : MonoBehaviour {
     {
         Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         Instantiate(muzzleFlash, shootPos.position, muzzleFlash.transform.rotation);
+        Instantiate(bulletShell, shootPos.position, Quaternion.identity);
     }
 
 }
