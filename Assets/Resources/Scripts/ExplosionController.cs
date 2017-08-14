@@ -7,7 +7,7 @@ public class ExplosionController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        Invoke("RemoveExplosionArea", 0.75f);
+        Invoke("RemoveExplosionArea", 0.65f);
 	}
 	
 	// Update is called once per frame
