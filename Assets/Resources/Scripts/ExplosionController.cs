@@ -7,7 +7,7 @@ public class ExplosionController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-		
+        Invoke("RemoveExplosionArea", 0.75f);
 	}
 	
 	// Update is called once per frame
@@ -23,5 +23,10 @@ public class ExplosionController : MonoBehaviour {
             if (otherColl.gameObject.GetComponent<SZombieFam>())
                 otherColl.gameObject.GetComponent<SZombieFam>().setDeadByBoom();           
         }
+    }
+
+    void RemoveExplosionArea()
+    {
+        Destroy(gameObject.GetComponent<CircleCollider2D>());
     }
 }
