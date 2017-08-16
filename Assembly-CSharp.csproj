@@ -107,11 +107,13 @@
      <Compile Include="Assets\AssetsFromStore\RainMaker\Prefab\RainCollision.cs" />
      <Compile Include="Assets\AssetsFromStore\RainMaker\Prefab\RainScript.cs" />
      <Compile Include="Assets\AssetsFromStore\RainMaker\Prefab\RainScript2D.cs" />
+     <Compile Include="Assets\Resources\Scripts\AddForce.cs" />
      <Compile Include="Assets\Resources\Scripts\AirStrikeController.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SBackgound.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SHalloweenBG.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SIceBG.cs" />
      <Compile Include="Assets\Resources\Scripts\BombController.cs" />
+     <Compile Include="Assets\Resources\Scripts\BrokenMirrorController.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
@@ -129,6 +131,7 @@
      <Compile Include="Assets\Resources\Scripts\Interface\RandomInterface.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level1.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level2.cs" />
+     <Compile Include="Assets\Resources\Scripts\MirrorController.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SMetalBlock.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SObstacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />
@@ -141,6 +144,7 @@
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieFam.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieCarController.cs" />
+     <Compile Include="Assets\Resources\Scripts\ZombieHeadController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieManager.cs" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\AssetsFromStore\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
