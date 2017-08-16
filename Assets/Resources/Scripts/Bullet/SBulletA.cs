@@ -4,6 +4,7 @@ using System.Collections;
 public class SBulletA : SBullet {
 
     public GameObject bloodHit;
+    public GameObject shell;
 
 	void Awake(){
 
@@ -44,5 +45,15 @@ public class SBulletA : SBullet {
             Instantiate(bloodHit, new Vector2(transform.position.x-0.15f,transform.position.y), bloodHit.transform.rotation);
 			Destroy(gameObject);
 		}
+
+        if(otherColl.tag == "car")
+        {
+            Instantiate(shell, transform.position, shell.transform.rotation);
+            if(otherColl.GetComponent<CarBodyController>())
+            {
+                otherColl.GetComponent<CarBodyController>().ShowSparkPS(transform.position);
+            }
+            Destroy(gameObject);
+        }
 	}
 }

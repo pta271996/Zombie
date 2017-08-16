@@ -115,7 +115,9 @@
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
+     <Compile Include="Assets\Resources\Scripts\BulletShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Resources\Scripts\CarBodyController.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\BloodHitController.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\CleanerRightController.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\Rotate.cs" />
@@ -138,6 +140,7 @@
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieFam.cs" />
+     <Compile Include="Assets\Resources\Scripts\ZombieCarController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieManager.cs" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\AssetsFromStore\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />

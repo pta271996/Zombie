@@ -66,8 +66,8 @@ public class SZombie : MonoBehaviour {
 	public void getDamaged(int damage)
 	{
 		health -= damage;
-		myRB.AddForce(new Vector2(3.5f, 0.0f), ForceMode2D.Impulse);
-		Invoke("stopForce", 0.5f);
+		myRB.AddForce(new Vector2(2.5f, 0.0f), ForceMode2D.Impulse);
+		Invoke("stopForce", 0.35f);
 		if (health <= 0)
 			makeDead ();
 	}
