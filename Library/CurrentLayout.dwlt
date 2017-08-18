@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 51
+  controlID: 2417
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 52
+  controlID: 2383
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 53
+  controlID: 2384
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 271}
   m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 121
+  controlID: 2418
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -415,7 +415,7 @@ MonoBehaviour:
     height: 343
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7af6ffff
+    m_SelectedIDs: 4e3b0000
     m_LastClickedID: 0
     m_ExpandedIDs: 1afcffff00000000
     m_RenameOverlay:
@@ -501,9 +501,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.0018773
+    m_Target: 7.7447624
     speed: 2
-    m_Value: 4.0018773
+    m_Value: 7.7447624
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -542,16 +542,8 @@ MonoBehaviour:
     height: 343
   m_ViewPositions:
     m_KeySerializationHelper:
-    - {fileID: 110779866, guid: d5e0b952e888ed547b9c3d237398ae6c, type: 2}
-    - {fileID: 1107316419074725136, guid: 62cf6b91473f16042a3e1ffe70e4634f, type: 2}
     - {fileID: 1107423101563860780, guid: 9809fdc4f10977444b726cf3956e8c96, type: 2}
-    - {fileID: 1107578968593184060, guid: 6639f21f786cf8045a9dc3f553c6fe7f, type: 2}
-    - {fileID: 1107537355977648058, guid: 43bed94ef0703204ab13935c20ebae59, type: 2}
-    - {fileID: 1107746329498176390, guid: 40c668621ceecd8478be808a7095285c, type: 2}
-    - {fileID: 1107954144437670282, guid: 84221248cb825ab4fabe0bdfab9fe934, type: 2}
-    - {fileID: 1107917663538092714, guid: bae1823d85acb594eab403290b051c6c, type: 2}
     - {fileID: 1107953268341123342, guid: f4ab0e89487bcbc4a8bf1553f10348cf, type: 2}
-    - {fileID: 1107735588377558504, guid: 23acd54db5d61dc4fbb57af8540ca74c, type: 2}
     - {fileID: 1107506484554939068, guid: e9ffd47f7bd06b04eae7d3b8223e34ff, type: 2}
     - {fileID: 1107347188912943956, guid: ba38140d313138b42a57a8e691576278, type: 2}
     - {fileID: 1107967679745179846, guid: 38d21c9d04c1f8b4fadc594bea4a1686, type: 2}
@@ -565,16 +557,8 @@ MonoBehaviour:
     - {fileID: 1107928058885967266, guid: 5397740c3a8edb54d831dcb54085f5b7, type: 2}
     - {fileID: 1107993669753228376, guid: b651137f53bc9ae41a1e145f5d20bef0, type: 2}
     m_ValueSerializationHelper:
-    - {x: 471.40002, y: 230.40001}
-    - {x: 477.40002, y: 226.20001}
     - {x: 458.2, y: 85.8}
-    - {x: 458.2, y: 205.8}
-    - {x: 458.2, y: 205.8}
-    - {x: 458.2, y: 205.8}
-    - {x: 458.2, y: 205.8}
-    - {x: 458.2, y: 205.8}
     - {x: 458.2, y: 65.8}
-    - {x: 410.2, y: 205.8}
     - {x: 420.40002, y: 145.8}
     - {x: 479.80002, y: 181.8}
     - {x: 454.6, y: 193.8}
@@ -588,10 +572,10 @@ MonoBehaviour:
     - {x: 421.6, y: 205.8}
     - {x: 421.6, y: 185.8}
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: b651137f53bc9ae41a1e145f5d20bef0,
+  m_AnimatorController: {fileID: 9100000, guid: 6552c4459b6ea4a4f9909fc7cb1cc305,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1107993669753228376, guid: b651137f53bc9ae41a1e145f5d20bef0,
+  - m_Target: {fileID: 1107882121209822016, guid: 6552c4459b6ea4a4f9909fc7cb1cc305,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -668,19 +652,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Resources/Prefabs
+    - Assets/Resources/Animation/Zombies
   m_ViewMode: 1
   m_StartGridSize: 73
   m_LastFolders:
-  - Assets/Resources/Prefabs
+  - Assets/Resources/Animation/Zombies
   m_LastFoldersGridSize: 73
   m_LastProjectPath: F:\Unity_Project\Zombie project 1.1\Zombie
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 3383}
-    m_SelectedIDs: 18370000
-    m_LastClickedID: 14104
-    m_ExpandedIDs: 000000005e27000088280000ae2800008c290000ca290000ce2900000a2a0000202a00004c2a0000622b0000682c0000102d00005a2d0000b42d00000e2e0000222e0000da2e0000dc2f0000a8300000843100008a310000d03100000632000094320000aa3200000c3300002433000034330000803300004e340000c6340000ce35000054360000183700003e370000ce3700001e380000063900002a3900003e3900007639000080390000a2390000a83a00004e3b0000a83d0000fe4300000044000002440000044400000644000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 1903}
+    m_SelectedIDs: 4e3b0000
+    m_LastClickedID: 15182
+    m_ExpandedIDs: 000000005e27000088280000ae2800008c290000ca290000ce2900000a2a0000202a00004c2a0000622b0000682c0000102d00005a2d0000b42d00000e2e0000222e0000da2e0000dc2f0000a8300000843100008a310000d03100000632000094320000aa3200000c3300002433000034330000803300004e340000c6340000ce35000054360000183700003e370000ce3700001e380000063900002a3900003e3900007639000080390000a2390000a83a00004e3b0000a83d0000fc430000fe43000000440000024400000444000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -708,7 +692,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e27000088280000ae2800008c290000ca290000ce2900000a2a0000202a00004c2a0000622b0000682c0000102d00005a2d0000b42d00000e2e0000222e0000da2e0000dc2f0000a8300000843100008a310000d03100000632000094320000aa3200000c3300002433000034330000803300004e340000c6340000ce35000054360000183700003e370000ce3700001e380000063900002a3900003e3900007639000080390000a2390000a83a00004e3b0000a83d0000fe43000000440000024400000444000006440000
+    m_ExpandedIDs: 000000005e27000088280000ae2800008c290000ca290000ce2900000a2a0000202a00004c2a0000622b0000682c0000102d00005a2d0000b42d00000e2e0000222e0000da2e0000dc2f0000a8300000843100008a310000d03100000632000094320000aa3200000c3300002433000034330000803300004e340000c6340000ce35000054360000183700003e370000ce3700001e380000063900002a3900003e3900007639000080390000a2390000a83a00004e3b0000a83d0000fc430000fe43000000440000024400000444000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -760,7 +744,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 12}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 73
   m_DirectoriesAreaWidth: 198
 --- !u!114 &20
