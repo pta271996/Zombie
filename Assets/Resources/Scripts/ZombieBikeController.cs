@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZombieBikeController : MonoBehaviour {
 
     public float speed;
+    public Animator myAnim;
     private bool isDead;
 
 	// Use this for initialization
@@ -23,5 +24,26 @@ public class ZombieBikeController : MonoBehaviour {
     void Move()
     {
         transform.position -= Vector3.right * speed * Time.deltaTime;
+    }
+
+    public void makeDead()
+    {
+        isDead = true;
+        myAnim.SetBool("isDead", true);
+        Destroy(transform.Find("bike body").GetComponent<PolygonCollider2D>());
+        Destroy(gameObject, 2.0f);
+    }
+
+    public void makeDeadByBoom()
+    {
+        if (!isDead)
+        {
+            isDead = true;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.GetComponent<AddForce>().Explode();
+            }
+            Destroy(gameObject, 2.5f);
+        }
     }
 }

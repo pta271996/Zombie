@@ -30,7 +30,10 @@ public class ZombieHeadController : MonoBehaviour {
         if(otherColl.tag == "bullet")
         {
             RemoveHead();
-            transform.root.GetComponent<ZombieCarController>().makeDead();
+            if (transform.root.GetComponent<ZombieCarController>())
+                transform.root.GetComponent<ZombieCarController>().makeDead();
+            else if (transform.root.GetComponent<ZombieBikeController>())
+                transform.root.GetComponent<ZombieBikeController>().makeDead();
             Destroy(gameObject, 1.5f);
         }
     }

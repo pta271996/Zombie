@@ -46,7 +46,7 @@ public class SBulletA : SBullet {
 			Destroy(gameObject);
 		}
 
-        if(otherColl.tag == "car")
+        if (otherColl.tag == "car" || otherColl.tag == "bike")
         {
             Instantiate(shell, transform.position, shell.transform.rotation);
             if(otherColl.GetComponent<CarBodyController>())

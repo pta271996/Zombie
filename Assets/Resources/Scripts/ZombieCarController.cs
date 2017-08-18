@@ -31,6 +31,7 @@ public class ZombieCarController : MonoBehaviour {
     {
         isDead = true;
         myAnim.SetBool("isDead", true);
+        Destroy(transform.Find("body").GetComponent<BoxCollider2D>());
         Destroy(gameObject, 2.0f);
     }
 

@@ -27,6 +27,10 @@ public class ExplosionController : MonoBehaviour {
         {          
             otherColl.gameObject.transform.root.GetComponent<ZombieCarController>().makeDeadByBoom();
         }
+        if (otherColl.tag == "bike")
+        {
+            otherColl.gameObject.transform.root.GetComponent<ZombieBikeController>().makeDeadByBoom();
+        }
     }
 
     void RemoveExplosionArea()
