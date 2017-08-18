@@ -6,18 +6,18 @@ public class ZombieCarController : MonoBehaviour {
 
     public float speed;
     public Animator myAnim;
-    private bool isMoving;
+    private bool isDead;
 
 	// Use this for initialization
 	void Start () 
     {
-        isMoving = true;
+        isDead = false;
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if(isMoving)
+        if(!isDead)
             Move();
 	}
 
@@ -29,17 +29,21 @@ public class ZombieCarController : MonoBehaviour {
 
     public void makeDead()
     {
-        isMoving = false;
+        isDead = true;
         myAnim.SetBool("isDead", true);
         Destroy(gameObject, 2.0f);
     }
 
     public void makeDeadByBoom()
     {
-        foreach (Transform child in transform)
+        if (!isDead)
         {
-            child.gameObject.GetComponent<AddForce>().Explode();
+            isDead = true;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.GetComponent<AddForce>().Explode();
+            }
+            Destroy(gameObject, 2.5f);
         }
-        Destroy(gameObject, 2.5f);
     }
 }
