@@ -125,6 +125,7 @@
      <Compile Include="Assets\Resources\Scripts\Effect\Rotate.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\SelfDestruction.cs" />
      <Compile Include="Assets\Resources\Scripts\ExplosionController.cs" />
+     <Compile Include="Assets\Resources\Scripts\FlyingZombieController.cs" />
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GrenadeController.cs" />
      <Compile Include="Assets\Resources\Scripts\GunController.cs" />
