@@ -35,7 +35,7 @@ public class GrenadeController : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if(otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "bike")
+        if (otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "bike" || otherColl.tag == "mower")
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             //otherColl.gameObject.transform.root.GetComponent<ZombieCarController>().makeDeadByBoom();

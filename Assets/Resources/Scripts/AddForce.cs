@@ -19,7 +19,7 @@ public class AddForce : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if (isDead)
+        if (isDead && GetComponent<SpriteRenderer>())
             GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<SpriteRenderer>().material.color, new Color(1.0f, 0.0f, 0.0f, 1.0f), 1.5f * Time.deltaTime);
 	}
 
