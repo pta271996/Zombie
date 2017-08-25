@@ -148,6 +148,7 @@
      <Compile Include="Assets\Resources\Scripts\ZombieCarController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieHeadController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\ZombieMowerController.cs" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\AssetsFromStore\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
