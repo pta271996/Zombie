@@ -139,6 +139,7 @@
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\Singleton.cs" />
+     <Compile Include="Assets\Resources\Scripts\SkeletonController.cs" />
      <Compile Include="Assets\Resources\Scripts\SpaceShipController.cs" />
      <Compile Include="Assets\Resources\Scripts\TankController.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />

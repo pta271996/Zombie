@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour {
 
     public Transform shootPos;
+    public Transform muzzlePos;
     public float normalAngle;
     public float attackAngle;
     public GameObject bullet;
@@ -59,8 +60,10 @@ public class GunController : MonoBehaviour {
     public void Shoot()
     {
         Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        Instantiate(muzzleFlash, shootPos.position, muzzleFlash.transform.rotation);
-        Instantiate(bulletShell, new Vector3(shootPos.position.x,shootPos.position.y,0.0f), bulletShell.transform.rotation);
+        if(muzzleFlash)
+            Instantiate(muzzleFlash, muzzlePos.position, muzzleFlash.transform.rotation);
+        if(bulletShell)
+            Instantiate(bulletShell, new Vector3(muzzlePos.position.x, muzzlePos.position.y, 0.0f), bulletShell.transform.rotation);
     }
 
 }

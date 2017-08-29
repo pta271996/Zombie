@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
         }
         if(Time.time >= throwTime && isThrowing)
         {
+            myWeapon.SetActive(true);
             isThrowing = false;
             myAnim.SetBool("isThrowing", isThrowing);
         }
@@ -88,6 +89,7 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
             myAnim.SetBool("isThrowing", isThrowing);
             throwTime = Time.time + throwDuration;
+            myWeapon.SetActive(false);
             Invoke("Throw", 0.5f);
         }
         else

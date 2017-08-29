@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SZombieFam : SZombie
 {
+    public GameObject skeleton;
 
     void Awake()
     {
@@ -67,6 +68,12 @@ public class SZombieFam : SZombie
             {
                 getDamaged(10);
             }
+        }
+
+        if(otherColl.tag == "electricity")
+        {
+            Instantiate(skeleton, transform.position, skeleton.transform.rotation);
+            Destroy(gameObject);
         }
     }
 
