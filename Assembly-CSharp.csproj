@@ -123,6 +123,7 @@
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletB.cs" />
+     <Compile Include="Assets\Resources\Scripts\Bullet\SBulletC.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
@@ -145,6 +146,7 @@
      <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\SetParent.cs" />
      <Compile Include="Assets\Resources\Scripts\Singleton.cs" />
      <Compile Include="Assets\Resources\Scripts\SkeletonController.cs" />
      <Compile Include="Assets\Resources\Scripts\SpaceShipController.cs" />

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ExplosionController : MonoBehaviour {
 
+    public float removeTime;
+
 	// Use this for initialization
 	void Start () 
     {
-        Invoke("RemoveExplosionArea", 0.65f);
+        Invoke("RemoveExplosionArea", removeTime);
 	}
 	
 	// Update is called once per frame
