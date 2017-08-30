@@ -59,6 +59,12 @@
      <Compile Include="Assets\AssetsFromStore\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
      <Compile Include="Assets\AssetsFromStore\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
      <Compile Include="Assets\AssetsFromStore\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
+     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
+     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
+     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Script\EffectShaderPropertyStr.cs" />
+     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Script\RenderEffect.cs" />
+     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Script\TransformExtension.cs" />
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -116,6 +122,7 @@
      <Compile Include="Assets\Resources\Scripts\BrokenMirrorController.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
+     <Compile Include="Assets\Resources\Scripts\Bullet\SBulletB.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
@@ -157,6 +164,7 @@
      <None Include="Assets\AssetsFromStore\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\LutGen.shader" />
+     <None Include="Assets\AssetsFromStore\Popcorn\PopcornFX\Resources\PkFxDepthCopy.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
@@ -165,22 +173,28 @@
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Tonemapping.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\HistogramCompute.compute" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Uber.shader" />
+     <None Include="Assets\AssetsFromStore\Popcorn\PopcornFX\README.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Blit.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\WaveformRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\VectorscopeCompute.compute" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\FXAA3.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\MotionBlur.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
+     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
      <None Include="Assets\AssetsFromStore\RainMaker\Prefab\RainShader.shader" />
+     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\UI\Trackball.shader" />
+     <None Include="Assets\AssetsFromStore\Popcorn\PopcornFX\Resources\PKFxDistQuickDirtyBlurEffect.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Bloom.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\TAA.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
+     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\TAA.cginc" />
+     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\READ ME.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\GrainGen.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\FXAA.shader" />
@@ -190,11 +204,15 @@
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Bloom.shader" />
      <None Include="Assets\AssetsFromStore\RainMaker\Readme.txt" />
+     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
+     <None Include="Assets\AssetsFromStore\Popcorn\PopcornFX\Resources\PKFxDepthCopyToColor.shader" />
+     <None Include="Assets\AssetsFromStore\Popcorn\PopcornFX\Resources\PKFxDistortionEffect.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
+     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -215,6 +233,15 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="PKFx-Helper">
+ <HintPath>F:/Unity_Project/Zombie project 1.1/Zombie/Assets/AssetsFromStore/Popcorn/PopcornFX/Scripts/PKFx-Helper.dll</HintPath>
+ </Reference>
+ <Reference Include="PKFx-Runtime">
+ <HintPath>F:/Unity_Project/Zombie project 1.1/Zombie/Assets/AssetsFromStore/Popcorn/PopcornFX/Scripts/PKFx-Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="PKFxManager">
+ <HintPath>F:/Unity_Project/Zombie project 1.1/Zombie/Assets/AssetsFromStore/Popcorn/PopcornFX/Scripts/PKFxManager.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
