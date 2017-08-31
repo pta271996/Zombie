@@ -86,7 +86,11 @@ public class SZombie : MonoBehaviour {
         if (isDeadByNormalShot)
 		    myAnim.SetBool("isDead",true);
         else if(isDeadByHeadShot)
+        {
             myAnim.SetBool("isDeadByHeadShot", true);
+            if (gameObject.GetComponent<MoveUp>())
+                gameObject.GetComponent<MoveUp>().Move();
+        }
         else if(isDeadByBoom)
             myAnim.SetBool("isDeadByBoom", true);
 		Destroy (gameObject, 2.0f);

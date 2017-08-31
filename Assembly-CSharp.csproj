@@ -141,6 +141,7 @@
      <Compile Include="Assets\Resources\Scripts\Level\Level1.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level2.cs" />
      <Compile Include="Assets\Resources\Scripts\MirrorController.cs" />
+     <Compile Include="Assets\Resources\Scripts\MoveUp.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SMetalBlock.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SObstacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />

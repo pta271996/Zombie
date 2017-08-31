@@ -132,4 +132,17 @@ public class PlayerController : MonoBehaviour
         Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 
+    public void OnButtonShootPressed()
+    {
+        if(!isAttacking && !isThrowing)
+        {
+            isAttacking = true;
+            isRunning = false;
+            myAnim.SetBool("isAttacking", isAttacking);
+            attackTime = Time.time + attackDuration;
+            extraBodyParts.SetActive(true);
+            setAttackWeaponAttributes();
+            Shoot();
+        }
+    }
 }
