@@ -125,6 +125,7 @@
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletB.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletC.cs" />
+     <Compile Include="Assets\Resources\Scripts\Bullet\SBulletD.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
