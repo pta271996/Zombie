@@ -11,7 +11,7 @@ public class GunController : MonoBehaviour {
     public GameObject bullet;
     public GameObject muzzleFlash;
     public GameObject bulletShell;
-
+    public Animator myAnim;
 
 	// Use this for initialization
 	void Start () 
@@ -59,6 +59,7 @@ public class GunController : MonoBehaviour {
 
     public void Shoot()
     {
+        myAnim.SetBool("isShooting", true);
         Instantiate(bullet, shootPos.position, bullet.transform.rotation);
         if(muzzleFlash)
             Instantiate(muzzleFlash, muzzlePos.position, muzzleFlash.transform.rotation);
@@ -66,4 +67,9 @@ public class GunController : MonoBehaviour {
             Instantiate(bulletShell, new Vector3(muzzlePos.position.x, muzzlePos.position.y, 0.0f), bulletShell.transform.rotation);
     }
 
+    public void setNormalAnim()
+    {
+        myAnim.SetBool("isShooting", false);
+    }
+    
 }

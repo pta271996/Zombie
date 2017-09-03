@@ -52,7 +52,8 @@ public class PlayerController : MonoBehaviour
             isAttacking = false;
             myAnim.SetBool("isAttacking", isAttacking);
             extraBodyParts.SetActive(false);
-            setNormalWeaponAttributes();
+            myWeapon.GetComponent<GunController>().setNormalAnim();
+            setNormalWeaponAttributes();            
         }
         if(Time.time >= throwTime && isThrowing)
         {
