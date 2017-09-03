@@ -138,6 +138,7 @@
      <Compile Include="Assets\Resources\Scripts\FlyingZombieController.cs" />
      <Compile Include="Assets\Resources\Scripts\GameManager.cs" />
      <Compile Include="Assets\Resources\Scripts\GrenadeController.cs" />
+     <Compile Include="Assets\Resources\Scripts\GroundFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\GunController.cs" />
      <Compile Include="Assets\Resources\Scripts\Interface\RandomInterface.cs" />
      <Compile Include="Assets\Resources\Scripts\LaserController.cs" />
@@ -152,6 +153,7 @@
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\SetParent.cs" />
+     <Compile Include="Assets\Resources\Scripts\ShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\Singleton.cs" />
      <Compile Include="Assets\Resources\Scripts\SkeletonController.cs" />
      <Compile Include="Assets\Resources\Scripts\SpaceShipController.cs" />
