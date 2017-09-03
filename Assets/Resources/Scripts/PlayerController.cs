@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         isThrowing = false;
 
         attackTime = 0.0f;
-        attackDuration = 0.5f;
+        attackDuration = 0.375f;
         throwTime = 0.0f;
         throwDuration = 0.8f;
 
