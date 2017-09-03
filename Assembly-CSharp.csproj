@@ -151,6 +151,7 @@
      <Compile Include="Assets\Resources\Scripts\Obstacle\SObstacle.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\OrganController.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Resources\Scripts\SetParent.cs" />
      <Compile Include="Assets\Resources\Scripts\ShellController.cs" />
