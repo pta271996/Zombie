@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public Transform normalWeaponPos;
     public Transform attackWeaponPos;
     public Transform throwPos;
+    
 
     private bool isRunning;
     private bool isAttacking;
@@ -21,9 +22,11 @@ public class PlayerController : MonoBehaviour
     private bool isThrowing;
     private float attackTime;
     private float attackDuration;
+    private float attackAnimSpeed;
     private float throwTime;
     private float throwDuration;
     private GameObject myWeapon;
+
     
 
 
@@ -36,12 +39,14 @@ public class PlayerController : MonoBehaviour
         isThrowing = false;
 
         attackTime = 0.0f;
-        attackDuration = 0.3f;
+        //attackDuration = 0.3f;
         throwTime = 0.0f;
         throwDuration = 0.8f;
 
         myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
         setNormalWeaponAttributes();
+        attackDuration = myWeapon.GetComponent<GunController>().getShootDuration();
+        attackAnimSpeed = myWeapon.GetComponent<GunController>().getShootAnimSpeed();
 	}
 	
 	// Update is called once per frame
@@ -53,7 +58,8 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isAttacking", isAttacking);
             extraBodyParts.SetActive(false);
             myWeapon.GetComponent<GunController>().setNormalAnim();
-            setNormalWeaponAttributes();            
+            setNormalWeaponAttributes();
+            myAnim.speed = 1.0f;
         }
         if(Time.time >= throwTime && isThrowing)
         {
@@ -62,13 +68,13 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isThrowing", isThrowing);
         }
 
-		if(Input.GetKey(KeyCode.W))
+		if(Input.GetKey(KeyCode.W) && !isAttacking && !isThrowing)
         {
             isRunning = true;
             myAnim.SetBool("isRunning", isRunning);
             Move(0.08f, 0.1f);
         }
-        else if(Input.GetKey(KeyCode.S))
+        else if(Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing)
         {
             isRunning = true;
             myAnim.SetBool("isRunning", isRunning);
@@ -82,6 +88,7 @@ public class PlayerController : MonoBehaviour
             attackTime = Time.time + attackDuration;
             extraBodyParts.SetActive(true);
             setAttackWeaponAttributes();
+            myAnim.speed = attackAnimSpeed;
             Shoot();
         }
         else if(Input.GetKeyDown(KeyCode.T) && !isThrowing && !isAttacking)

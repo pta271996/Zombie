@@ -7,6 +7,7 @@ public class SBulletB : SBullet
     public float angle;
 
     public GameObject bloodHit;
+    public GameObject bloodSplatter;
     public GameObject shell;
 
 	// Use this for initialization
@@ -40,14 +41,17 @@ public class SBulletB : SBullet
             {
                 if (otherColl.gameObject.GetComponent<SZombieFam>())
                     otherColl.gameObject.GetComponent<SZombieFam>().setDead();
+                Instantiate(bloodSplatter, new Vector2(transform.position.x + 0.65f, transform.position.y - 0.375f), bloodSplatter.transform.rotation);
             }
             else if (otherColl is CircleCollider2D)
             {
                 if (otherColl.gameObject.GetComponent<SZombieFam>())
                     otherColl.gameObject.GetComponent<SZombieFam>().setDeadByHeadShot();
+                Instantiate(bloodSplatter, new Vector2(transform.position.x + 0.65f, transform.position.y - 0.65f), bloodSplatter.transform.rotation);
             }
 
             Instantiate(bloodHit, new Vector2(transform.position.x - 0.15f, transform.position.y), bloodHit.transform.rotation);
+
             Destroy(gameObject);
         }
 

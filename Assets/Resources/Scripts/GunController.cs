@@ -12,6 +12,8 @@ public class GunController : MonoBehaviour {
     public GameObject muzzleFlash;
     public GameObject bulletShell;
     public Animator myAnim;
+    public float shootDuration;
+    public float shootAnimSpeed;
 
 	// Use this for initialization
 	void Start () 
@@ -70,6 +72,16 @@ public class GunController : MonoBehaviour {
     public void setNormalAnim()
     {
         myAnim.SetBool("isShooting", false);
+    }
+
+    public float getShootDuration()
+    {
+        return shootDuration;
+    }
+
+    public float getShootAnimSpeed()
+    {
+        return shootAnimSpeed;
     }
     
 }
