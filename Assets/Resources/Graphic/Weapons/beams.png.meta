@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: a44121d9d69925e4dbaf6dab7879a458
-timeCreated: 1501903980
+timeCreated: 1504620918
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: beams_0
+    21300002: yellow beam
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,6 +94,20 @@ TextureImporter:
         height: 71
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: yellow beam
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 66
+        width: 41
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
