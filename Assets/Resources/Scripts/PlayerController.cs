@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private float throwDuration;
     private GameObject myWeapon;
 
+    private bool isButtonShootPressed;
+
     
 
 
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
         //attackDuration = 0.3f;
         throwTime = 0.0f;
         throwDuration = 0.8f;
+
+        isButtonShootPressed = false;
 
         myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
         setNormalWeaponAttributes();
@@ -80,7 +84,7 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isRunning", isRunning);
             Move(-0.08f, -0.1f);
         }
-        else if(Input.GetKeyDown(KeyCode.K) && !isAttacking && !isThrowing)
+        else if (isButtonShootPressed && !isAttacking && !isThrowing)
         {
             isAttacking = true;
             isRunning = false;
@@ -140,17 +144,11 @@ public class PlayerController : MonoBehaviour
         Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 
-    public void OnButtonShootPressed()
+    public void setMove(bool move)
     {
-        if(!isAttacking && !isThrowing)
-        {
-            isAttacking = true;
-            isRunning = false;
-            myAnim.SetBool("isAttacking", isAttacking);
-            attackTime = Time.time + attackDuration;
-            extraBodyParts.SetActive(true);
-            setAttackWeaponAttributes();
-            Shoot();
-        }
+        Debug.Log("aa");
+        isButtonShootPressed = move;    
     }
+
+   
 }
