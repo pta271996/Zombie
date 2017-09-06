@@ -87,6 +87,10 @@ public class SZombie : MonoBehaviour {
 		Destroy(gameObject.GetComponent<CircleCollider2D>());
 		Destroy(gameObject.GetComponent<BoxCollider2D>());
 		stopForce();
+
+        GameObject shadow = transform.Find("shadow").gameObject;
+        Destroy(shadow);
+
         if (isDeadByNormalShot)
         {
             myAnim.SetBool("isDead", true);
@@ -112,24 +116,9 @@ public class SZombie : MonoBehaviour {
         {
             myAnim.SetBool("isDeadByHeadShot", true);
             if (gameObject.GetComponent<MoveUp>())
-                gameObject.GetComponent<MoveUp>().Move();
-
-            GameObject heartPrefab = (GameObject)Resources.Load("Prefabs/heart", typeof(GameObject));
-            GameObject kidneyPrefab = (GameObject)Resources.Load("Prefabs/kidney", typeof(GameObject));
-            GameObject bonePrefab = (GameObject)Resources.Load("Prefabs/bone", typeof(GameObject));
-            Instantiate(heartPrefab, transform.position, heartPrefab.transform.rotation);
-            Instantiate(kidneyPrefab, transform.position, kidneyPrefab.transform.rotation);
-
-            float ran = Random.Range(0.0f, 1.0f);
-            if (ran >= 0.5f)
-            {
-                Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
-                Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
-            }
-            else
-            {
-                Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
-            }
+                gameObject.GetComponent<MoveUp>().Move();          
+            GameObject brainPrefab = (GameObject)Resources.Load("Prefabs/brain", typeof(GameObject));   
+            Instantiate(brainPrefab, transform.position, brainPrefab.transform.rotation);        
         }
         else if (isDeadByBoom)
             myAnim.SetBool("isDeadByBoom", true);

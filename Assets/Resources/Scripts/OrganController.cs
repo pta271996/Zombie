@@ -18,7 +18,7 @@ public class OrganController : MonoBehaviour
         float forceY = Random.Range(minForceY, maxForceY);
 
         myRigidbody.AddForce(transform.right * forceX);
-        myRigidbody.AddForce(transform.up * forceX);
+        myRigidbody.AddForce(transform.up * forceY);
 
         float ran = Random.Range(-7.0f, 7.0f);
 
