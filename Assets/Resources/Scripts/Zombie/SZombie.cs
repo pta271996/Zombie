@@ -118,7 +118,7 @@ public class SZombie : MonoBehaviour {
             if (gameObject.GetComponent<MoveUp>())
                 gameObject.GetComponent<MoveUp>().Move();          
             GameObject brainPrefab = (GameObject)Resources.Load("Prefabs/brain", typeof(GameObject));   
-            Instantiate(brainPrefab, transform.position, brainPrefab.transform.rotation);        
+            Instantiate(brainPrefab, new Vector3(transform.position.x, transform.position.y+0.25f,0.0f), brainPrefab.transform.rotation);        
         }
         else if (isDeadByBoom)
             myAnim.SetBool("isDeadByBoom", true);

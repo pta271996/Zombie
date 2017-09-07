@@ -32,8 +32,16 @@ public class BatteryController : MonoBehaviour {
         if (otherColl.tag == "zombie")
         {
             Instantiate(explosion, transform.position, explosion.transform.rotation);
-            otherColl.gameObject.GetComponent<SZombieFam>().setDead();
-            otherColl.gameObject.GetComponent<SZombieFam>().makeDead();
+            if (otherColl.gameObject.GetComponent<SZombieFam>())
+            {
+                otherColl.gameObject.GetComponent<SZombieFam>().setDead();
+                otherColl.gameObject.GetComponent<SZombieFam>().makeDead();
+            }
+            else if (otherColl.gameObject.GetComponent<SZombieJump>())
+            {
+                otherColl.gameObject.GetComponent<SZombieJump>().setDead();
+                otherColl.gameObject.GetComponent<SZombieJump>().makeDead();
+            }
             Destroy(gameObject);
         }
         if (otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "bike" || otherColl.tag == "mower")

@@ -39,7 +39,6 @@ public class SZombieFam : SZombie
         {
             if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
             {
-
                 isAttacking = true;
                 myAnim.SetBool("isAttacking", true);
             }

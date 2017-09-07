@@ -23,7 +23,9 @@ public class ExplosionController : MonoBehaviour {
         if (otherColl.tag == "zombie")
         {           
             if (otherColl.gameObject.GetComponent<SZombieFam>())
-                otherColl.gameObject.GetComponent<SZombieFam>().setDeadByBoom();           
+                otherColl.gameObject.GetComponent<SZombieFam>().setDeadByBoom();
+            else if (otherColl.gameObject.GetComponent<SZombieJump>())
+                otherColl.gameObject.GetComponent<SZombieJump>().setDeadByBoom();  
         }
         if (otherColl.tag == "car" || otherColl.tag == "mirror")
         {          
