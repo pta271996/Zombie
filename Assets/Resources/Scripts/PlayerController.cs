@@ -76,13 +76,13 @@ public class PlayerController : MonoBehaviour
         {
             isRunning = true;
             myAnim.SetBool("isRunning", isRunning);
-            Move(0.08f, 0.1f);
+            Move(0.0375f, 0.1f);
         }
         else if(Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing)
         {
             isRunning = true;
             myAnim.SetBool("isRunning", isRunning);
-            Move(-0.08f, -0.1f);
+            Move(-0.0375f, -0.1f);
         }
         else if ((isButtonShootPressed || Input.GetKey(KeyCode.K)) && !isAttacking && !isThrowing)
         {

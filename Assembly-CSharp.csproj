@@ -148,9 +148,7 @@
      <Compile Include="Assets\Resources\Scripts\MirrorController.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveRight.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveUp.cs" />
-     <Compile Include="Assets\Resources\Scripts\Obstacle\SMetalBlock.cs" />
      <Compile Include="Assets\Resources\Scripts\Obstacle\SObstacle.cs" />
-     <Compile Include="Assets\Resources\Scripts\Obstacle\SSpike.cs" />
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />
      <Compile Include="Assets\Resources\Scripts\OrganController.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />

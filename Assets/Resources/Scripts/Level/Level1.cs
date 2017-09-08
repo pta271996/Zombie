@@ -8,7 +8,7 @@ public class Level1 : Singleton<Level1>, RandomInterface{
 
 	void Start(){
 		InitZombies (lineNumber);
-		summonObstacles (lineNumber);
+		//summonObstacles (lineNumber);
 
 	}
 	public void InitZombies(int lineNumber){

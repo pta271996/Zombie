@@ -11,6 +11,10 @@ public class SZombie : MonoBehaviour {
 	[SerializeField]
 	protected float attackTime;// = 1.5f;
     [SerializeField]
+    protected float attackDuration;
+    [SerializeField]
+    protected int damage;
+    [SerializeField]
     protected float breakIceTime;
 	[SerializeField]
 	protected Animator myAnim;

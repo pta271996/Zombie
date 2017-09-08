@@ -31,7 +31,16 @@ public class SZombieJump : SZombie
     {
         if (!isAttacking && !isDead)
             Move();
-        
+        if (isAttacking && Time.time >= attackTime)
+        {
+            GameObject obstacle = GameObject.FindGameObjectWithTag("obstacle");
+            if (obstacle)
+            {
+                obstacle.GetComponent<SObstacle>().getDamaged(damage);
+                attackTime = Time.time + attackDuration;
+            }
+        }
+
         myAnim.SetFloat("verticalSpeed", myRB.velocity.y);
 	}
 
@@ -39,6 +48,8 @@ public class SZombieJump : SZombie
     {
         isJumping = true;
         myAnim.SetBool("isJumping", true);
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         Invoke("Jump", 0.2f);
     }
 
@@ -46,9 +57,7 @@ public class SZombieJump : SZombie
     {
         myRB.gravityScale = 1.0f;
         myRB.AddForce(new Vector2(0.0f, 10.0f), ForceMode2D.Impulse);   
-        speed = 4.5f;
-        GetComponent<CircleCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
+        speed = 4.5f;       
         Invoke("Land", jumpDuration);
     }
 
@@ -66,7 +75,7 @@ public class SZombieJump : SZombie
     {
         if (otherColl.tag == "obstacle")
         {
-            if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
+            //if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
             {
                 isAttacking = true;
                 myAnim.SetBool("isAttacking", true);

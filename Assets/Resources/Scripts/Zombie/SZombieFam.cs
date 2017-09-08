@@ -17,17 +17,12 @@ public class SZombieFam : SZombie
         isFrozen = false;
         realSpeed = speed;
         realHealth = health;
-        //speed = 4.0f;
-        //health = 2;
-        //attackTime = 1.5f;
+      
     }
     // Use this for initialization
     void Start()
     {
-        //speed = 4.0f;
-        //health = 2;
-
-        //attackTime = 1.5f;
+ 
     }
 
     // Update is called once per frame
@@ -35,6 +30,15 @@ public class SZombieFam : SZombie
     {
         if (!isAttacking && !isDead)
             Move();
+        if(isAttacking && Time.time >= attackTime)
+        {
+            GameObject obstacle = GameObject.FindGameObjectWithTag("obstacle");
+            if(obstacle)
+            {
+                obstacle.GetComponent<SObstacle>().getDamaged(damage);
+                attackTime = Time.time + attackDuration;
+            }
+        }
     }
 
 
@@ -42,7 +46,7 @@ public class SZombieFam : SZombie
     {
         if (otherColl.tag == "obstacle")
         {
-            if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
+            //if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
             {
                 isAttacking = true;
                 myAnim.SetBool("isAttacking", true);
