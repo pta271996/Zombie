@@ -90,6 +90,8 @@ public class SZombieFam : SZombie
                 speed = 0.0f;
                 realHealth = health;
                 health = 1;
+                myRB.AddForce(new Vector2(6.0f, 0.0f), ForceMode2D.Impulse);
+                Invoke("stopForce", 0.35f);
                 Invoke("BreakIce", breakIceTime);
             }           
         }

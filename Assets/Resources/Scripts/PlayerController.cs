@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isRunning", isRunning);
             Move(-0.08f, -0.1f);
         }
-        else if (isButtonShootPressed && !isAttacking && !isThrowing)
+        else if ((isButtonShootPressed || Input.GetKey(KeyCode.K)) && !isAttacking && !isThrowing)
         {
             isAttacking = true;
             isRunning = false;
