@@ -10,6 +10,8 @@ public class SZombie : MonoBehaviour {
 	protected int health;// = 2;
 	[SerializeField]
 	protected float attackTime;// = 1.5f;
+    [SerializeField]
+    protected float breakIceTime;
 	[SerializeField]
 	protected Animator myAnim;
 	[SerializeField]
@@ -24,6 +26,7 @@ public class SZombie : MonoBehaviour {
     protected bool isDeadByNormalShot;
     protected bool isDeadByHeadShot;
     protected bool isDeadByBoom;
+    protected bool isFrozen;
 
     private GameObject heart;
     private GameObject kidney;
@@ -90,6 +93,12 @@ public class SZombie : MonoBehaviour {
 
         GameObject shadow = transform.Find("shadow").gameObject;
         Destroy(shadow);
+
+        if(isFrozen)
+        {
+            transform.GetChild(1).gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 1);
+        }
 
         if (isDeadByNormalShot)
         {

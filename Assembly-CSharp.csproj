@@ -121,6 +121,7 @@
      <Compile Include="Assets\Resources\Scripts\BatteryController.cs" />
      <Compile Include="Assets\Resources\Scripts\BombController.cs" />
      <Compile Include="Assets\Resources\Scripts\BrokenMirrorController.cs" />
+     <Compile Include="Assets\Resources\Scripts\BubbleController.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletB.cs" />

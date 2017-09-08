@@ -5,6 +5,8 @@ using UnityEngine;
 public class SZombieFam : SZombie
 {
     public GameObject skeleton;
+    private float realSpeed;
+    private int realHealth;
 
     void Awake()
     {
@@ -12,6 +14,9 @@ public class SZombieFam : SZombie
         isDead = false;
         isDeadByHeadShot = false;
         isDeadByBoom = false;
+        isFrozen = false;
+        realSpeed = speed;
+        realHealth = health;
         //speed = 4.0f;
         //health = 2;
         //attackTime = 1.5f;
@@ -74,6 +79,36 @@ public class SZombieFam : SZombie
             Instantiate(skeleton, transform.position, skeleton.transform.rotation);
             Destroy(gameObject);
         }
+
+        if(otherColl.tag == "water")
+        {
+            if(!isFrozen)
+            {
+                isFrozen = true;
+                transform.GetChild(1).gameObject.SetActive(true);
+                GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 0);
+                speed = 0.0f;
+                realHealth = health;
+                health = 1;
+                Invoke("BreakIce", breakIceTime);
+            }           
+        }
+    }
+
+    void BreakIce()
+    {
+        isFrozen = false;
+        transform.GetChild(1).gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 1);      
+        health = realHealth;
+        GameObject icePrefab = (GameObject)Resources.Load("Prefabs/Effects/IceBreaking PS", typeof(GameObject));
+        Instantiate(icePrefab, transform.position, icePrefab.transform.rotation);
+        Invoke("ResetSpeed", 0.2f);
+    }
+
+    void ResetSpeed()
+    {
+        speed = realSpeed;
     }
 
     void OnTriggerStay2D(Collider2D otherColl)
