@@ -95,8 +95,11 @@ public class SZombie : MonoBehaviour {
 		Destroy(gameObject.GetComponent<BoxCollider2D>());
 		stopForce();
 
-        GameObject shadow = transform.Find("shadow").gameObject;
-        Destroy(shadow);
+        if (GetComponent<SZombieFam>())
+        {
+            GameObject shadow = transform.Find("shadow").gameObject;
+            Destroy(shadow);
+        }
 
         if(isFrozen)
         {
@@ -135,6 +138,7 @@ public class SZombie : MonoBehaviour {
         }
         else if (isDeadByBoom)
             myAnim.SetBool("isDeadByBoom", true);
+      
 		Destroy (gameObject, 2.0f);
 	}
 	public float Speech{

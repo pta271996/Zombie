@@ -23,6 +23,7 @@ public class SZombieJump : SZombie
     {
         //jumpTime = Time.time + jumpTime;
         isJumping = false;
+        transform.DetachChildren();
         Invoke("PrepareJump", jumpTime);
 	}
 	

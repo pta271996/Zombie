@@ -29,7 +29,7 @@ public class GunController : MonoBehaviour {
 
     public void setNormalLayerOrder()
     {
-        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
     }
 
     public void setAttackLayerOrder()

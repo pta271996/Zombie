@@ -11,8 +11,10 @@ public class GroundFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if(shell)
+        if (shell)
             Follow();
+        else
+            Destroy(gameObject);
 	}
 
     void Follow()
