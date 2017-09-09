@@ -120,6 +120,7 @@
      <Compile Include="Assets\Resources\Scripts\Background\SIceBG.cs" />
      <Compile Include="Assets\Resources\Scripts\BatteryController.cs" />
      <Compile Include="Assets\Resources\Scripts\BombController.cs" />
+     <Compile Include="Assets\Resources\Scripts\BrainController.cs" />
      <Compile Include="Assets\Resources\Scripts\BrokenMirrorController.cs" />
      <Compile Include="Assets\Resources\Scripts\BubbleController.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
@@ -145,6 +146,7 @@
      <Compile Include="Assets\Resources\Scripts\LaserController.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level1.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level2.cs" />
+     <Compile Include="Assets\Resources\Scripts\LiquidController.cs" />
      <Compile Include="Assets\Resources\Scripts\MirrorController.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveRight.cs" />
      <Compile Include="Assets\Resources\Scripts\MoveUp.cs" />
