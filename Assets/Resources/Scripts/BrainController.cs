@@ -7,6 +7,7 @@ public class BrainController : MonoBehaviour {
     public float speed;    
     public Rigidbody2D myRB;
     public GameObject liquidSplash;
+    public GameObject acid;
 
     private Quaternion firstRotation;
     private float angle;
@@ -43,6 +44,7 @@ public class BrainController : MonoBehaviour {
         if(otherColl.tag == "zombie")
         {
             Instantiate(liquidSplash, transform.position, liquidSplash.transform.rotation);
+            Instantiate(acid, transform.position, acid.transform.rotation);
             Destroy(gameObject);
         }
     }

@@ -49,8 +49,10 @@ public class SZombieJump : SZombie
     {
         isJumping = true;
         myAnim.SetBool("isJumping", true);
-        GetComponent<CircleCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
+        if (GetComponent<CircleCollider2D>())
+            GetComponent<CircleCollider2D>().enabled = false;
+        if (GetComponent<BoxCollider2D>())
+            GetComponent<BoxCollider2D>().enabled = false;
         Invoke("Jump", 0.2f);
     }
 

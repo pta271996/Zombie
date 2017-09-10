@@ -12,6 +12,7 @@ public class SObstacle : MonoBehaviour {
     public int health;
     public string strSpriteName;
     public Animator myAnim;
+    public GameObject shadow;
 
 	protected int level;
 	protected int line;
@@ -48,6 +49,7 @@ public class SObstacle : MonoBehaviour {
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
+            Destroy(shadow);
             Destroy(gameObject);
         }
 

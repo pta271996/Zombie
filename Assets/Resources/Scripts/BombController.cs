@@ -8,7 +8,7 @@ public class BombController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () 
-    {
+    {       
         Invoke("Explode", 1.85f);
 	}
 	
@@ -22,4 +22,6 @@ public class BombController : MonoBehaviour {
         Instantiate(bigExplosion, transform.position, bigExplosion.transform.rotation);
         Destroy(gameObject);
     }
+
+   
 }

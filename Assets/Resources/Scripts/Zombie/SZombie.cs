@@ -110,31 +110,64 @@ public class SZombie : MonoBehaviour {
         if (isDeadByNormalShot)
         {
             myAnim.SetBool("isDead", true);
-            GameObject heartPrefab = (GameObject)Resources.Load("Prefabs/heart", typeof(GameObject));
-            GameObject kidneyPrefab = (GameObject)Resources.Load("Prefabs/kidney", typeof(GameObject));
-            GameObject bonePrefab = (GameObject)Resources.Load("Prefabs/bone", typeof(GameObject));
-            Instantiate(heartPrefab, transform.position, heartPrefab.transform.rotation);
-            Instantiate(kidneyPrefab, transform.position, kidneyPrefab.transform.rotation);
+            if(GetComponent<SZombieFam>())
+            {
+                GameObject heartPrefab = (GameObject)Resources.Load("Prefabs/heart", typeof(GameObject));
+                GameObject kidneyPrefab = (GameObject)Resources.Load("Prefabs/kidney", typeof(GameObject));
+                GameObject bonePrefab = (GameObject)Resources.Load("Prefabs/bone", typeof(GameObject));
+                Instantiate(heartPrefab, transform.position, heartPrefab.transform.rotation);
+                Instantiate(kidneyPrefab, transform.position, kidneyPrefab.transform.rotation);
 
-            float ran = Random.Range(0.0f, 1.0f);
-            if(ran >= 0.5f)
-            {
-                Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
-                Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                float ran = Random.Range(0.0f, 1.0f);
+                if (ran >= 0.5f)
+                {
+                    Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                    Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                }
+                else
+                {
+                    Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                }
             }
-            else
+            else if(GetComponent<SZombieJump>())
             {
-                Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                GameObject heartPrefab = (GameObject)Resources.Load("Prefabs/big heart", typeof(GameObject));
+                GameObject kidneyPrefab = (GameObject)Resources.Load("Prefabs/big kidney", typeof(GameObject));
+                GameObject bonePrefab = (GameObject)Resources.Load("Prefabs/big bone", typeof(GameObject));
+                Instantiate(heartPrefab, transform.position, heartPrefab.transform.rotation);
+                Instantiate(kidneyPrefab, transform.position, kidneyPrefab.transform.rotation);
+
+                float ran = Random.Range(0.0f, 1.0f);
+                if (ran >= 0.5f)
+                {
+                    Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                    Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                }
+                else
+                {
+                    Instantiate(bonePrefab, transform.position, bonePrefab.transform.rotation);
+                }
             }
+            
 
         }
         else if (isDeadByHeadShot)
         {
             myAnim.SetBool("isDeadByHeadShot", true);
             if (gameObject.GetComponent<MoveUp>())
-                gameObject.GetComponent<MoveUp>().Move();          
-            GameObject brainPrefab = (GameObject)Resources.Load("Prefabs/brain", typeof(GameObject));   
-            Instantiate(brainPrefab, new Vector3(transform.position.x, transform.position.y+0.25f,0.0f), brainPrefab.transform.rotation);        
+                gameObject.GetComponent<MoveUp>().Move();      
+    
+            if(GetComponent<SZombieFam>())
+            {
+                GameObject brainPrefab = (GameObject)Resources.Load("Prefabs/brain", typeof(GameObject));
+                Instantiate(brainPrefab, new Vector3(transform.position.x, transform.position.y + 0.25f, 0.0f), brainPrefab.transform.rotation);        
+            }
+            else if (GetComponent<SZombieJump>())
+            {
+                GameObject brainPrefab = (GameObject)Resources.Load("Prefabs/big brain", typeof(GameObject));
+                Instantiate(brainPrefab, new Vector3(transform.position.x, transform.position.y + 0.25f, 0.0f), brainPrefab.transform.rotation);        
+            }
+            
         }
         else if (isDeadByBoom)
             myAnim.SetBool("isDeadByBoom", true);
