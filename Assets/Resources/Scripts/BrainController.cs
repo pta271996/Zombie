@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class BrainController : MonoBehaviour {
 
-    public float speed;
-    public float angle;
+    public float speed;    
     public Rigidbody2D myRB;
     public GameObject liquidSplash;
 
     private Quaternion firstRotation;
+    private float angle;
 
 	// Use this for initialization
 	void Start () 
     {
+        angle = Random.Range(-65.0f, -13.0f);
+
         var rotationVector = transform.rotation.eulerAngles;
         rotationVector.z = angle;
         transform.rotation = Quaternion.Euler(rotationVector);

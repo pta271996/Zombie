@@ -20,17 +20,22 @@ public class PlayerController : MonoBehaviour
     private bool isAttacking;
     private bool isGettingHurted;
     private bool isThrowing;
+    private bool isUsingPowerShot;
     private float attackTime;
     private float attackDuration;
     private float attackAnimSpeed;
     private float throwTime;
     private float throwDuration;
     private GameObject myWeapon;
+    private GameObject shadow;
 
     private bool isButtonShootPressed;
 
-    
+    private float powerAttackTime;
+    private float powerAttackDuration;
 
+    private float powerShootTime;
+    private float powerShootDuration;
 
 	// Use this for initialization
 	void Start () 
@@ -39,11 +44,16 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
         isGettingHurted = false;
         isThrowing = false;
+        isUsingPowerShot = false;
 
         attackTime = 0.0f;
-        //attackDuration = 0.3f;
         throwTime = 0.0f;
         throwDuration = 0.8f;
+
+        powerAttackTime = 0.0f;
+        powerAttackDuration = 3.5f;
+        powerShootTime = 0.0f;
+        powerShootDuration = 0.2f;
 
         isButtonShootPressed = false;
 
@@ -51,12 +61,14 @@ public class PlayerController : MonoBehaviour
         setNormalWeaponAttributes();
         attackDuration = myWeapon.GetComponent<GunController>().getShootDuration();
         attackAnimSpeed = myWeapon.GetComponent<GunController>().getShootAnimSpeed();
+
+        shadow = GameObject.Find("player-shadow");
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if (Time.time >= attackTime && isAttacking)
+        if (Time.time >= attackTime && isAttacking && !isUsingPowerShot)
         {
             isAttacking = false;
             myAnim.SetBool("isAttacking", isAttacking);
@@ -72,13 +84,38 @@ public class PlayerController : MonoBehaviour
             myAnim.SetBool("isThrowing", isThrowing);
         }
 
-		if(Input.GetKey(KeyCode.W) && !isAttacking && !isThrowing)
+        if(Input.GetKeyDown(KeyCode.L) && !isUsingPowerShot)
+        {
+            isUsingPowerShot = true;
+            myAnim.SetBool("isJumping", true);
+            powerAttackTime = Time.time + powerAttackDuration;
+            powerShootTime = Time.time + 1.0f;
+            Invoke("Jump", 0.175f);
+        }
+
+        if(isUsingPowerShot && Time.time >= powerAttackTime)
+        {
+            isUsingPowerShot = false;
+            myWeapon.GetComponent<GunController>().setNormalAnim();
+            setNormalWeaponAttributes();
+            extraBodyParts.SetActive(false);
+            myAnim.SetBool("isJumping", false);
+            Fall();
+        }
+
+        if (isUsingPowerShot && Time.time >= powerShootTime)
+        {
+            ShootOnAir();
+            powerShootTime = Time.time + powerShootDuration;
+        }
+
+		if(Input.GetKey(KeyCode.W) && !isAttacking && !isThrowing && !isUsingPowerShot)
         {
             isRunning = true;
             myAnim.SetBool("isRunning", isRunning);
             Move(0.0375f, 0.1f);
         }
-        else if(Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing)
+        else if (Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing && !isUsingPowerShot)
         {
             isRunning = true;
             myAnim.SetBool("isRunning", isRunning);
@@ -138,15 +175,45 @@ public class PlayerController : MonoBehaviour
         myWeapon.GetComponent<GunController>().Shoot();
     }
 
+    void PowerShoot()
+    {
+        myWeapon.GetComponent<GunController>().PowerShoot();
+    }
+
     void Throw()
     {
         Instantiate(myGrenade, throwPos.position, Quaternion.identity);
         Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 
+    void Jump()
+    {
+        myRB.AddForce(new Vector2(0.0f, 6.5f), ForceMode2D.Impulse);
+        shadow.GetComponent<ShadowController>().setScaling(true);
+        Invoke("stopForce", 0.65f);
+    }
+
+    void Fall()
+    {
+        myRB.AddForce(new Vector2(0.0f, -6.5f), ForceMode2D.Impulse);
+        Invoke("stopForce", 0.65f);
+    }
+
+    void stopForce()
+    {
+        myRB.velocity = Vector2.zero;            
+        if(!isUsingPowerShot)
+            shadow.GetComponent<ShadowController>().setScaling(false);
+    }
+
+    void ShootOnAir()
+    {
+        setAttackWeaponAttributes();
+        PowerShoot();
+    }
+
     public void setMove(bool move)
     {
-        Debug.Log("aa");
         isButtonShootPressed = move;    
     }
 

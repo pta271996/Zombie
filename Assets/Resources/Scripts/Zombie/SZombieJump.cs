@@ -113,6 +113,12 @@ public class SZombieJump : SZombie
             Instantiate(skeleton, transform.position, skeleton.transform.rotation);
             Destroy(gameObject);
         }
+
+        if (otherColl.tag == "brain")
+        {
+            setDead();
+            makeDead();
+        }
     }
 
     void OnTriggerExit2D(Collider2D otherColl)

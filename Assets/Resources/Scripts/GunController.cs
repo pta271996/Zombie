@@ -11,6 +11,7 @@ public class GunController : MonoBehaviour {
     public GameObject bullet;
     public GameObject muzzleFlash;
     public GameObject bulletShell;
+    public GameObject brain;
     public Animator myAnim;
     public float shootDuration;
     public float shootAnimSpeed;
@@ -69,10 +70,18 @@ public class GunController : MonoBehaviour {
             Instantiate(bulletShell, new Vector3(muzzlePos.position.x, muzzlePos.position.y, 0.0f), bulletShell.transform.rotation);
     }
 
+    public void PowerShoot()
+    {
+        myAnim.SetBool("isPowerShooting", true);
+        Instantiate(brain, shootPos.position, brain.transform.rotation);
+    }
+
     public void setNormalAnim()
     {
         myAnim.SetBool("isShooting", false);
+        myAnim.SetBool("isPowerShooting", false);
     }
+
 
     public float getShootDuration()
     {

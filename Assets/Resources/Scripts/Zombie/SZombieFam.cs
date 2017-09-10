@@ -99,6 +99,12 @@ public class SZombieFam : SZombie
                 Invoke("BreakIce", breakIceTime);
             }           
         }
+
+        if(otherColl.tag == "brain")
+        {
+            setDead();
+            makeDead();
+        }
     }
 
     void BreakIce()
