@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool isGettingHurted;
     private bool isThrowing;
     private bool isUsingPowerShot;
+    private bool isDead;
     private float attackTime;
     private float attackDuration;
     private float attackAnimSpeed;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         isGettingHurted = false;
         isThrowing = false;
         isUsingPowerShot = false;
+        isDead = false;
 
         attackTime = 0.0f;
         throwTime = 0.0f;
@@ -68,84 +70,87 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if (Time.time >= attackTime && isAttacking && !isUsingPowerShot)
+        if(!isDead)
         {
-            isAttacking = false;
-            myAnim.SetBool("isAttacking", isAttacking);
-            extraBodyParts.SetActive(false);
-            myWeapon.GetComponent<GunController>().setNormalAnim();
-            setNormalWeaponAttributes();
-            myAnim.speed = 1.0f;
-        }
-        if(Time.time >= throwTime && isThrowing)
-        {
-            myWeapon.SetActive(true);
-            isThrowing = false;
-            myAnim.SetBool("isThrowing", isThrowing);
-        }
+            if (Time.time >= attackTime && isAttacking && !isUsingPowerShot)
+            {
+                isAttacking = false;
+                myAnim.SetBool("isAttacking", isAttacking);
+                extraBodyParts.SetActive(false);
+                myWeapon.GetComponent<GunController>().setNormalAnim();
+                setNormalWeaponAttributes();
+                myAnim.speed = 1.0f;
+            }
+            if (Time.time >= throwTime && isThrowing)
+            {
+                myWeapon.SetActive(true);
+                isThrowing = false;
+                myAnim.SetBool("isThrowing", isThrowing);
+            }
 
-        if(Input.GetKeyDown(KeyCode.L) && !isUsingPowerShot)
-        {
-            isUsingPowerShot = true;
-            myAnim.SetBool("isJumping", true);
-            powerAttackTime = Time.time + powerAttackDuration;
-            powerShootTime = Time.time + 1.0f;
-            Invoke("Jump", 0.175f);
-        }
+            if (Input.GetKeyDown(KeyCode.L) && !isUsingPowerShot)
+            {
+                isUsingPowerShot = true;
+                myAnim.SetBool("isJumping", true);
+                powerAttackTime = Time.time + powerAttackDuration;
+                powerShootTime = Time.time + 1.0f;
+                Invoke("Jump", 0.175f);
+            }
 
-        if(isUsingPowerShot && Time.time >= powerAttackTime)
-        {
-            isUsingPowerShot = false;
-            myWeapon.GetComponent<GunController>().setNormalAnim();
-            setNormalWeaponAttributes();
-            extraBodyParts.SetActive(false);
-            myAnim.SetBool("isJumping", false);
-            Fall();
-        }
+            if (isUsingPowerShot && Time.time >= powerAttackTime)
+            {
+                isUsingPowerShot = false;
+                myWeapon.GetComponent<GunController>().setNormalAnim();
+                setNormalWeaponAttributes();
+                extraBodyParts.SetActive(false);
+                myAnim.SetBool("isJumping", false);
+                Fall();
+            }
 
-        if (isUsingPowerShot && Time.time >= powerShootTime)
-        {
-            ShootOnAir();
-            powerShootTime = Time.time + powerShootDuration;
-        }
+            if (isUsingPowerShot && Time.time >= powerShootTime)
+            {
+                ShootOnAir();
+                powerShootTime = Time.time + powerShootDuration;
+            }
 
-		if(Input.GetKey(KeyCode.W) && !isAttacking && !isThrowing && !isUsingPowerShot)
-        {
-            isRunning = true;
-            myAnim.SetBool("isRunning", isRunning);
-            Move(0.0375f, 0.1f);
-        }
-        else if (Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing && !isUsingPowerShot)
-        {
-            isRunning = true;
-            myAnim.SetBool("isRunning", isRunning);
-            Move(-0.0375f, -0.1f);
-        }
-        else if ((isButtonShootPressed || Input.GetKey(KeyCode.K)) && !isAttacking && !isThrowing)
-        {
-            isAttacking = true;
-            isRunning = false;
-            myAnim.SetBool("isAttacking", isAttacking);
-            attackTime = Time.time + attackDuration;
-            extraBodyParts.SetActive(true);
-            setAttackWeaponAttributes();
-            myAnim.speed = attackAnimSpeed;
-            Shoot();
-        }
-        else if(Input.GetKeyDown(KeyCode.T) && !isThrowing && !isAttacking)
-        {
-            isThrowing = true;
-            isRunning = false;
-            myAnim.SetBool("isThrowing", isThrowing);
-            throwTime = Time.time + throwDuration;
-            myWeapon.SetActive(false);
-            Invoke("Throw", 0.5f);
-        }
-        else
-        {
-            isRunning = false;
-            myAnim.SetBool("isRunning", isRunning);
-        }
+            if (Input.GetKey(KeyCode.W) && !isAttacking && !isThrowing && !isUsingPowerShot)
+            {
+                isRunning = true;
+                myAnim.SetBool("isRunning", isRunning);
+                Move(0.0375f, 0.1f);
+            }
+            else if (Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing && !isUsingPowerShot)
+            {
+                isRunning = true;
+                myAnim.SetBool("isRunning", isRunning);
+                Move(-0.0375f, -0.1f);
+            }
+            else if ((isButtonShootPressed || Input.GetKey(KeyCode.K)) && !isAttacking && !isThrowing)
+            {
+                isAttacking = true;
+                isRunning = false;
+                myAnim.SetBool("isAttacking", isAttacking);
+                attackTime = Time.time + attackDuration;
+                extraBodyParts.SetActive(true);
+                setAttackWeaponAttributes();
+                myAnim.speed = attackAnimSpeed;
+                Shoot();
+            }
+            else if (Input.GetKeyDown(KeyCode.T) && !isThrowing && !isAttacking)
+            {
+                isThrowing = true;
+                isRunning = false;
+                myAnim.SetBool("isThrowing", isThrowing);
+                throwTime = Time.time + throwDuration;
+                myWeapon.SetActive(false);
+                Invoke("Throw", 0.5f);
+            }
+            else
+            {
+                isRunning = false;
+                myAnim.SetBool("isRunning", isRunning);
+            }
+        }      
 	}
 
     void Move(float wInput, float hInput)
@@ -212,10 +217,24 @@ public class PlayerController : MonoBehaviour
         PowerShoot();
     }
 
+    void makeDead()
+    {
+        myAnim.SetBool("isDead", true);
+        Destroy(gameObject, 2.0f);
+    }
+
     public void setMove(bool move)
     {
         isButtonShootPressed = move;    
     }
 
+    void OnTriggerEnter2D(Collider2D otherColl)
+    {
+        if(otherColl.tag == "zombie")
+        {
+            speed = 0.0f;
+            Invoke("makeDead", 0.4f);
+        }
+    }
    
 }

@@ -31,11 +31,13 @@ public class SZombie : MonoBehaviour {
     protected bool isDeadByHeadShot;
     protected bool isDeadByBoom;
     protected bool isFrozen;
+    protected bool isChasingEnemy;
 
     private GameObject heart;
     private GameObject kidney;
     private GameObject bone;
 
+    
 	protected int line;
 
 	public void Move()

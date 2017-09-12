@@ -7,6 +7,8 @@ public class SZombieFam : SZombie
     public GameObject skeleton;
     private float realSpeed;
     private int realHealth;
+    private GameObject enemy;
+    private GameObject obstacle;
 
     void Awake()
     {
@@ -15,6 +17,8 @@ public class SZombieFam : SZombie
         isDeadByHeadShot = false;
         isDeadByBoom = false;
         isFrozen = false;
+        isChasingEnemy = false;
+
         realSpeed = speed;
         realHealth = health;
       
@@ -22,21 +26,37 @@ public class SZombieFam : SZombie
     // Use this for initialization
     void Start()
     {
- 
+        enemy = GameObject.FindGameObjectWithTag("Player");
+        obstacle = GameObject.FindGameObjectWithTag("obstacle");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking && !isDead)
+        if (!isAttacking && !isDead && !isChasingEnemy)
             Move();
-        if(isAttacking && Time.time >= attackTime)
+        if(isAttacking)
         {
-            GameObject obstacle = GameObject.FindGameObjectWithTag("obstacle");
             if(obstacle)
             {
-                obstacle.GetComponent<SObstacle>().getDamaged(damage);
-                attackTime = Time.time + attackDuration;
+                if(Time.time >= attackTime)
+                {
+                    obstacle.GetComponent<SObstacle>().getDamaged(damage);
+                    attackTime = Time.time + attackDuration;
+                }               
+            }             
+        }
+
+        if(!obstacle)
+        {
+            isChasingEnemy = true;
+        }
+
+        if(isChasingEnemy)
+        {
+            if (enemy)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
             }
         }
     }
@@ -44,7 +64,7 @@ public class SZombieFam : SZombie
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if (otherColl.tag == "obstacle")
+        if (otherColl.tag == "obstacle" || otherColl.tag == "Player")
         {
             //if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
             {
@@ -135,6 +155,12 @@ public class SZombieFam : SZombie
     void OnTriggerExit2D(Collider2D otherColl)
     {
         if (otherColl.tag == "obstacle")
+        {
+            isAttacking = false;
+            myAnim.SetBool("isAttacking", false);           
+        }
+
+        if(otherColl.tag == "Player")
         {
             isAttacking = false;
             myAnim.SetBool("isAttacking", false);
