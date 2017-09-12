@@ -9,6 +9,8 @@ public class SZombieJump : SZombie
     public float jumpDuration;
 
     private bool isJumping;
+    private GameObject enemy;
+    private GameObject obstacle;
 
     void Awake()
     {
@@ -24,6 +26,8 @@ public class SZombieJump : SZombie
         //jumpTime = Time.time + jumpTime;
         isJumping = false;
         transform.DetachChildren();
+        enemy = GameObject.FindGameObjectWithTag("Player");
+        obstacle = GameObject.FindGameObjectWithTag("obstacle");
         Invoke("PrepareJump", jumpTime);
 	}
 	
@@ -34,11 +38,23 @@ public class SZombieJump : SZombie
             Move();
         if (isAttacking && Time.time >= attackTime)
         {
-            GameObject obstacle = GameObject.FindGameObjectWithTag("obstacle");
             if (obstacle)
             {
                 obstacle.GetComponent<SObstacle>().getDamaged(damage);
                 attackTime = Time.time + attackDuration;
+            }
+        }
+
+        if (!obstacle)
+        {
+            isChasingEnemy = true;
+        }
+
+        if (isChasingEnemy)
+        {
+            if (enemy)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
             }
         }
 
@@ -76,7 +92,7 @@ public class SZombieJump : SZombie
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if (otherColl.tag == "obstacle")
+        if (otherColl.tag == "obstacle" || otherColl.tag == "Player")
         {
             //if (otherColl.gameObject.GetComponent<SObstacle>().Line == this.line)
             {
@@ -126,6 +142,12 @@ public class SZombieJump : SZombie
     void OnTriggerExit2D(Collider2D otherColl)
     {
         if (otherColl.tag == "obstacle")
+        {
+            isAttacking = false;
+            myAnim.SetBool("isAttacking", false);
+        }
+
+        if (otherColl.tag == "Player")
         {
             isAttacking = false;
             myAnim.SetBool("isAttacking", false);

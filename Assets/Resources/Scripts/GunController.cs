@@ -16,10 +16,13 @@ public class GunController : MonoBehaviour {
     public float shootDuration;
     public float shootAnimSpeed;
 
+    private float brainAngle;
+
 	// Use this for initialization
 	void Start () 
     {
         setNormalAngle();
+        brainAngle = -75.0f;
 	}
 	
 	// Update is called once per frame
@@ -73,13 +76,15 @@ public class GunController : MonoBehaviour {
     public void PowerShoot()
     {
         myAnim.SetBool("isPowerShooting", true);
-        Instantiate(brain, shootPos.position, brain.transform.rotation);
+        Instantiate(brain, shootPos.position, Quaternion.Euler(new Vector3(0,0,brainAngle)));
+        brainAngle += 5.0f;
     }
 
     public void setNormalAnim()
     {
         myAnim.SetBool("isShooting", false);
         myAnim.SetBool("isPowerShooting", false);
+        brainAngle = -75.0f;
     }
 
 

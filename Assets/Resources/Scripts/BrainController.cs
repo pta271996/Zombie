@@ -15,7 +15,8 @@ public class BrainController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        angle = Random.Range(-65.0f, -13.0f);
+        //angle = Random.Range(-65.0f, -13.0f);
+        angle = transform.localEulerAngles.z;
 
         var rotationVector = transform.rotation.eulerAngles;
         rotationVector.z = angle;
