@@ -128,6 +128,7 @@
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletB.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletC.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletD.cs" />
+     <Compile Include="Assets\Resources\Scripts\Bullet\SBulletS.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
@@ -160,6 +161,7 @@
      <Compile Include="Assets\Resources\Scripts\Singleton.cs" />
      <Compile Include="Assets\Resources\Scripts\SkeletonController.cs" />
      <Compile Include="Assets\Resources\Scripts\SpaceShipController.cs" />
+     <Compile Include="Assets\Resources\Scripts\SupporterController.cs" />
      <Compile Include="Assets\Resources\Scripts\TankController.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
