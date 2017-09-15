@@ -59,8 +59,13 @@ public class SupporterController : MonoBehaviour {
             canShoot = true;
 
         float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        Debug.Log(zAngle);
+
         Quaternion desiredRot = Quaternion.Euler(0, 0, zAngle);
-        aimingSystem.transform.rotation = Quaternion.RotateTowards(aimingSystem.transform.rotation, desiredRot, aimingSpeed * Time.deltaTime);
+
+        if(zAngle >= -50.0f && zAngle <= 45.0f)
+            aimingSystem.transform.rotation = Quaternion.RotateTowards(aimingSystem.transform.rotation, desiredRot, aimingSpeed * Time.deltaTime);
        
         if(!isShooting && Time.time >= shootTime && canShoot)
         {

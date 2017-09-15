@@ -130,7 +130,8 @@ public class SZombieFam : SZombie
     void BreakIce()
     {
         isFrozen = false;
-        transform.GetChild(1).gameObject.SetActive(false);
+        if(transform.childCount > 1)
+            transform.GetChild(1).gameObject.SetActive(false);
         GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 1);      
         health = realHealth;
         GameObject icePrefab = (GameObject)Resources.Load("Prefabs/Effects/IceBreaking PS", typeof(GameObject));

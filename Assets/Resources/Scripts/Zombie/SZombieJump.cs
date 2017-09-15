@@ -88,6 +88,8 @@ public class SZombieJump : SZombie
         myAnim.SetBool("isJumping", false);
         GetComponent<CircleCollider2D>().enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
+        GameObject dust = (GameObject)Resources.Load("Prefabs/Effects/dust burstPS", typeof(GameObject));
+        Instantiate(dust, new Vector3(transform.position.x-0.2f, transform.position.y - 0.9f, 0.0f), dust.transform.rotation);
     }
 
     void OnTriggerEnter2D(Collider2D otherColl)
