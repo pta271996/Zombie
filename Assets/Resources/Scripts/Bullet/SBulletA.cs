@@ -74,5 +74,11 @@ public class SBulletA : SBullet {
             Instantiate(bloodHit, new Vector2(transform.position.x - 0.15f, transform.position.y), bloodHit.transform.rotation);
             Destroy(gameObject);
         }
+
+        if (otherColl.tag == "zombie mom")
+        {
+            Instantiate(bloodHit, new Vector2(transform.position.x - 0.15f, transform.position.y), bloodHit.transform.rotation);
+            Destroy(gameObject);
+        }
 	}
 }

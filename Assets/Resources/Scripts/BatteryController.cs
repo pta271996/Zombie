@@ -44,7 +44,7 @@ public class BatteryController : MonoBehaviour {
             }
             Destroy(gameObject);
         }
-        if (otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "bike" || otherColl.tag == "mower")
+        if (otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "bike" || otherColl.tag == "mower" || otherColl.tag == "zombie mom")
         {
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             Destroy(gameObject);

@@ -168,6 +168,7 @@
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieFam.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieJump.cs" />
+     <Compile Include="Assets\Resources\Scripts\Zombie\SZombieMom.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieBikeController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieCarController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieHeadController.cs" />
