@@ -11,6 +11,7 @@ public class SupporterController : MonoBehaviour {
     public Transform gunTip;
     public Transform muzzlePos;
     public GameObject muzzleFlash;
+    public float shootDistance;
 
     private GameObject enemy;
     private bool isAiming;
@@ -55,7 +56,7 @@ public class SupporterController : MonoBehaviour {
         dir.Normalize();
         Debug.Log(enemy.name);
 
-        if (Vector3.Distance(aimingSystem.transform.position, enemy.transform.position) <= 8.0f)
+        if (Vector3.Distance(aimingSystem.transform.position, enemy.transform.position) <= shootDistance)
             canShoot = true;
 
         float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
