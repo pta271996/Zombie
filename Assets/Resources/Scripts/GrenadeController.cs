@@ -29,7 +29,7 @@ public class GrenadeController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.tag == "zombie")
+        if(otherColl.tag == "zombie" || otherColl.tag == "zombie mom")
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);

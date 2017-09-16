@@ -9,29 +9,33 @@ public class SZombieMom : MonoBehaviour {
     public GameObject mySon;
     public Transform giveBirthPos;
     public int health;
+    public float giveBirthPosX;
+    public float giveBirthDuration;
+    public float delayTime;
+
 
     private float firstY;
     private float secondY;
     private Vector3 firstPos;
     private Vector3 secondPos;
-    private float giveBirthPosX;
+    
     private bool isGivingBirth;
     private bool isTarget2ndY;
 
     private bool isSpawningChild;
     private float giveBirhtTime;
-    private float giveBirthDuration;
+    
 
     private bool isDead;
 
 	// Use this for initialization
 	void Start () 
     {
-        giveBirthPosX = 5.5f;
+        //giveBirthPosX = 5.5f;
         isGivingBirth = false;
         isTarget2ndY = true;
         giveBirhtTime = 0.0f;
-        giveBirthDuration = 0.4f;
+        //giveBirthDuration = 0.4f;
         isSpawningChild = false;
         isDead = false;
 
@@ -86,7 +90,7 @@ public class SZombieMom : MonoBehaviour {
                     myAnim.SetBool("isAttacking", true);
                     isSpawningChild = true;
                     giveBirhtTime = Time.time + giveBirthDuration;
-                    Invoke("GiveBirth", 0.25f);
+                    Invoke("GiveBirth", delayTime);
                 }
             }
         }

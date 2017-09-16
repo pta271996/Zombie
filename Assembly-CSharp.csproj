@@ -118,6 +118,7 @@
      <Compile Include="Assets\Resources\Scripts\Background\SBackgound.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SHalloweenBG.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SIceBG.cs" />
+     <Compile Include="Assets\Resources\Scripts\BallController.cs" />
      <Compile Include="Assets\Resources\Scripts\BatteryController.cs" />
      <Compile Include="Assets\Resources\Scripts\BombController.cs" />
      <Compile Include="Assets\Resources\Scripts\BrainController.cs" />
