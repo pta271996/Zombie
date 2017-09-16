@@ -10,6 +10,8 @@ public class SupporterController : MonoBehaviour {
     public GameObject bullet;
     public Transform gunTip;
     public Transform muzzlePos;
+    public Transform gunTip2;
+    public Transform muzzlePos2;
     public GameObject muzzleFlash;
     public float shootDistance;
 
@@ -81,6 +83,11 @@ public class SupporterController : MonoBehaviour {
     {
         Instantiate(bullet, gunTip.position, Quaternion.Euler(new Vector3(0, 0, aimingSystem.transform.localEulerAngles.z)));
         Instantiate(muzzleFlash, muzzlePos.position, Quaternion.Euler(new Vector3(0, 0, aimingSystem.transform.localEulerAngles.z)));
+
+        if(gunTip2)
+            Instantiate(bullet, gunTip2.position, Quaternion.Euler(new Vector3(0, 0, aimingSystem.transform.localEulerAngles.z)));
+        if (muzzlePos2)
+            Instantiate(muzzleFlash, muzzlePos2.position, Quaternion.Euler(new Vector3(0, 0, aimingSystem.transform.localEulerAngles.z)));
     }
 
     void OnTriggerEnter2D(Collider2D otherColl)
