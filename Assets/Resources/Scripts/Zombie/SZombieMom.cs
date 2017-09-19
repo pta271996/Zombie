@@ -171,5 +171,13 @@ public class SZombieMom : MonoBehaviour {
         {
             makeDead();
         }
+
+        if (otherColl.tag == "battery")
+        {
+            if (!isDead)
+            {
+                getDamaged(5);
+            }
+        }
     }
 }

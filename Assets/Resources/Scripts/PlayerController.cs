@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -29,14 +30,24 @@ public class PlayerController : MonoBehaviour
     private float throwDuration;
     private GameObject myWeapon;
     private GameObject shadow;
+    private GameObject weaponsManager;
 
     private bool isButtonShootPressed;
+    private bool isButtonMoveUpPressed;
+    private bool isButtonMoveDownPressed;
 
     private float powerAttackTime;
     private float powerAttackDuration;
 
     private float powerShootTime;
     private float powerShootDuration;
+
+    private string currentWeapon;
+
+    public Image imgShoot;
+    public Image imgMoveUp;
+    public Image imgMoveDown;
+    public Image imgSwitchWP;
 
 	// Use this for initialization
 	void Start () 
@@ -58,6 +69,22 @@ public class PlayerController : MonoBehaviour
         powerShootDuration = 0.2f;
 
         isButtonShootPressed = false;
+        isButtonMoveUpPressed = false;
+        isButtonMoveDownPressed = false;
+
+        weaponsManager = GameObject.Find("WeaponsManager");
+        if (weaponsManager)
+        {
+            currentWeapon = weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString();
+            weapon = (GameObject)Resources.Load("Prefabs/Weapons/" + currentWeapon, typeof(GameObject));
+        }
+
+        GameObject weaponPos = transform.Find(currentWeapon + " pos").gameObject;
+        if (weaponPos)
+        {
+            normalWeaponPos = weaponPos.transform.GetChild(0);
+            attackWeaponPos = weaponPos.transform.GetChild(1);
+        }
 
         myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
         setNormalWeaponAttributes();
@@ -113,13 +140,13 @@ public class PlayerController : MonoBehaviour
                 powerShootTime = Time.time + powerShootDuration;
             }
 
-            if (Input.GetKey(KeyCode.W) && !isAttacking && !isThrowing && !isUsingPowerShot)
+            if ((Input.GetKey(KeyCode.W) || isButtonMoveUpPressed) && !isAttacking && !isThrowing && !isUsingPowerShot)
             {
                 isRunning = true;
                 myAnim.SetBool("isRunning", isRunning);
                 Move(0.0375f, 0.1f);
             }
-            else if (Input.GetKey(KeyCode.S) && !isAttacking && !isThrowing && !isUsingPowerShot)
+            else if ((Input.GetKey(KeyCode.S) || isButtonMoveDownPressed) && !isAttacking && !isThrowing && !isUsingPowerShot)
             {
                 isRunning = true;
                 myAnim.SetBool("isRunning", isRunning);
@@ -223,17 +250,90 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject, 2.0f);
     }
 
-    public void setMove(bool move)
-    {
-        isButtonShootPressed = move;    
-    }
-
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.tag == "zombie")
+        if (otherColl.tag == "zombie")
         {
             speed = 0.0f;
             Invoke("makeDead", 0.4f);
+        }
+    }
+
+    void SwitchWeapon()
+    {
+        if (weaponsManager)
+        {
+            weaponsManager.GetComponent<WeaponsController>().switchWeapon();
+            currentWeapon = weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString();
+            weapon = (GameObject)Resources.Load("Prefabs/Weapons/" + currentWeapon, typeof(GameObject));
+        }
+
+        GameObject weaponPos = transform.Find(currentWeapon + " pos").gameObject;
+        if (weaponPos)
+        {
+            normalWeaponPos = weaponPos.transform.GetChild(0);
+            attackWeaponPos = weaponPos.transform.GetChild(1);
+        }
+
+        Destroy(myWeapon);
+        myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
+        setNormalWeaponAttributes();
+        attackDuration = myWeapon.GetComponent<GunController>().getShootDuration();
+        attackAnimSpeed = myWeapon.GetComponent<GunController>().getShootAnimSpeed();
+    }
+
+    public void setShoot(bool shoot)
+    {
+        isButtonShootPressed = shoot;  
+        
+        if(shoot)
+        {
+            imgShoot.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            imgShoot.color = new Color(1.0f, 1.0f, 1.0f, 0.55f);
+        }
+    }
+
+    public void setMoveUp(bool move)
+    {
+        isButtonMoveUpPressed = move;
+
+        if (move)
+        {
+            imgMoveUp.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            imgMoveUp.color = new Color(1.0f, 1.0f, 1.0f, 0.55f);
+        }
+    }
+
+    public void setMoveDown(bool move)
+    {
+        isButtonMoveDownPressed = move;
+
+        if (move)
+        {
+            imgMoveDown.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            imgMoveDown.color = new Color(1.0f, 1.0f, 1.0f, 0.55f);
+        }
+    }
+
+    public void ChangeWeapon(bool change)
+    {
+        if (change)
+        {
+            SwitchWeapon();
+            imgSwitchWP.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            imgSwitchWP.color = new Color(1.0f, 1.0f, 1.0f, 0.55f);
         }
     }
    

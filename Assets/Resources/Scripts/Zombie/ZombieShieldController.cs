@@ -134,6 +134,14 @@ public class ZombieShieldController : MonoBehaviour {
         {
             makeDead();
         }
+
+        if (otherColl.tag == "battery")
+        {
+            if (!isDead)
+            {
+                getDamaged(5);
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D otherColl)
