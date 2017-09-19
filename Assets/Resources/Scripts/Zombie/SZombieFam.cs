@@ -52,7 +52,7 @@ public class SZombieFam : SZombie
             isChasingEnemy = true;
         }
 
-        if(isChasingEnemy)
+        if(isChasingEnemy && !isDead)
         {
             if (enemy)
             {

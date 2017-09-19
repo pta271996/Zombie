@@ -26,7 +26,7 @@ public class Level1 : Singleton<Level1>, RandomInterface{
 
 		int line = (int)Mathf.Round((Mathf.Abs(posY-ZombieManager.Instance.maxYPosition)/distanceBetween2Zombies + 1));
         
-		cloneZombie.GetComponent<SpriteRenderer> ().sortingOrder = line+2; //tinh line
+		cloneZombie.GetComponent<SpriteRenderer> ().sortingOrder = line+6; //tinh line
 		//Debug.Log ((int)Mathf.Round((Mathf.Abs(posY-ZombieManager.Instance.maxYPosition)/distanceBetween2Zombies + 1)));
 		cloneZombie.transform.SetParent (ZombieManager.Instance.parentTranform);
 

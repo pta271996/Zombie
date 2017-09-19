@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SObstacle : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class SObstacle : MonoBehaviour {
     public string strSpriteName;
     public Animator myAnim;
     public GameObject shadow;
+
+    public Image healthBar;
 
 	protected int level;
 	protected int line;
@@ -47,6 +50,16 @@ public class SObstacle : MonoBehaviour {
     public void getDamaged(int damage)
     {
         currentHealth -= damage;
+
+        healthBar.fillAmount = (float)currentHealth / (float)health;
+
+        if (healthBar.fillAmount > 0.575f)
+            healthBar.color = new Color(0.06f, 0.96f, 0.063f, 1.0f);
+        if (healthBar.fillAmount > 0.3f && healthBar.fillAmount <= 0.575f)
+            healthBar.color = new Color(1.0f, 0.92f, 0.0f, 1.0f);
+        if (healthBar.fillAmount >= 0.0f && healthBar.fillAmount <= 0.3f)
+            healthBar.color = new Color(0.96f, 0.06f, 0.86f, 1.0f);
+
         if(currentHealth <= 0)
         {
             Destroy(shadow);

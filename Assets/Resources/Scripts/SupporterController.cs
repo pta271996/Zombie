@@ -92,7 +92,7 @@ public class SupporterController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.tag == "zombie" && !isAiming)
+        if((otherColl.tag == "zombie"  || otherColl.tag == "zombie shield") && !isAiming)
         {
             enemy = otherColl.gameObject;
             isAiming = true;
@@ -101,7 +101,7 @@ public class SupporterController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D otherColl)
     {
-        if (otherColl.tag == "zombie")
+        if (otherColl.tag == "zombie" || otherColl.tag == "zombie shield")
         {
             enemy = null;
             isAiming = false;

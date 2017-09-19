@@ -42,7 +42,7 @@ public class BrainController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.tag == "zombie")
+        if(otherColl.tag == "zombie" || otherColl.tag == "zombie mom" || otherColl.tag == "zombie shield")
         {
             Instantiate(liquidSplash, transform.position, liquidSplash.transform.rotation);
             Instantiate(acid, transform.position, acid.transform.rotation);

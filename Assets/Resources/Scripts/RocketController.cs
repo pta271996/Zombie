@@ -25,7 +25,7 @@ public class RocketController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if (otherColl.tag == "zombie" || otherColl.tag == "zombie mom" || otherColl.tag == "car" || otherColl.tag == "bike" || otherColl.tag == "mirror" || otherColl.tag == "zombie head")
+        if (otherColl.tag == "zombie" || otherColl.tag == "zombie mom" || otherColl.tag == "zombie shield" || otherColl.tag == "car" || otherColl.tag == "bike" || otherColl.tag == "mirror" || otherColl.tag == "zombie head")
         {
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             Destroy(gameObject);

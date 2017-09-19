@@ -123,6 +123,7 @@
      <Compile Include="Assets\Resources\Scripts\BombController.cs" />
      <Compile Include="Assets\Resources\Scripts\BrainController.cs" />
      <Compile Include="Assets\Resources\Scripts\BrokenMirrorController.cs" />
+     <Compile Include="Assets\Resources\Scripts\BrokenShieldController.cs" />
      <Compile Include="Assets\Resources\Scripts\BubbleController.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBullet.cs" />
      <Compile Include="Assets\Resources\Scripts\Bullet\SBulletA.cs" />
@@ -170,6 +171,7 @@
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieFam.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieJump.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieMom.cs" />
+     <Compile Include="Assets\Resources\Scripts\Zombie\ZombieShieldController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieBikeController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieCarController.cs" />
      <Compile Include="Assets\Resources\Scripts\ZombieHeadController.cs" />

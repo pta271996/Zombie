@@ -80,5 +80,13 @@ public class SBulletA : SBullet {
             Instantiate(bloodHit, new Vector2(transform.position.x - 0.15f, transform.position.y), bloodHit.transform.rotation);
             Destroy(gameObject);
         }
+
+        if (otherColl.tag == "zombie shield")
+        {
+            GameObject shell = (GameObject)Resources.Load("Prefabs/Bullets/bullet shell", typeof(GameObject));
+            Instantiate(shell, transform.position, shell.transform.rotation);
+            Destroy(gameObject);
+        }
+
 	}
 }
