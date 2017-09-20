@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool isThrowing;
     private bool isUsingPowerShot;
     private bool isDead;
+    private bool isFlying;
     private float attackTime;
     private float attackDuration;
     private float attackAnimSpeed;
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private float throwDuration;
     private GameObject myWeapon;
     private GameObject shadow;
-    private GameObject weaponsManager;
+    public GameObject weaponsManager;
 
     private bool isButtonShootPressed;
     private bool isButtonMoveUpPressed;
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
         isThrowing = false;
         isUsingPowerShot = false;
         isDead = false;
+        isFlying = false;
 
         attackTime = 0.0f;
         throwTime = 0.0f;
@@ -72,25 +74,11 @@ public class PlayerController : MonoBehaviour
         isButtonMoveUpPressed = false;
         isButtonMoveDownPressed = false;
 
-        weaponsManager = GameObject.Find("WeaponsManager");
-        if (weaponsManager)
-        {
-            currentWeapon = weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString();
-            weapon = (GameObject)Resources.Load("Prefabs/Weapons/" + currentWeapon, typeof(GameObject));
-        }
+        //weaponsManager = GameObject.FindGameObjectWithTag("WeaponsManager");
+        //if (weaponsManager)
 
-        GameObject weaponPos = transform.Find(currentWeapon + " pos").gameObject;
-        if (weaponPos)
-        {
-            normalWeaponPos = weaponPos.transform.GetChild(0);
-            attackWeaponPos = weaponPos.transform.GetChild(1);
-        }
-
-        myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
-        setNormalWeaponAttributes();
-        attackDuration = myWeapon.GetComponent<GunController>().getShootDuration();
-        attackAnimSpeed = myWeapon.GetComponent<GunController>().getShootAnimSpeed();
-
+        //PrepareWeapon();
+        Invoke("PrepareWeapon", 0.1f);
         shadow = GameObject.Find("player-shadow");
 	}
 	
@@ -99,6 +87,12 @@ public class PlayerController : MonoBehaviour
     {
         if(!isDead)
         {
+
+            if (transform.position.y > -0.85f && !isFlying)
+                transform.position = new Vector3(transform.position.x, -0.85f, transform.position.z);
+            if (transform.position.y < -4.05f && !isFlying)
+                transform.position = new Vector3(transform.position.x, -4.0f, transform.position.z);
+
             if (Time.time >= attackTime && isAttacking && !isUsingPowerShot)
             {
                 isAttacking = false;
@@ -118,6 +112,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.L) && !isUsingPowerShot)
             {
                 isUsingPowerShot = true;
+                isFlying = true;
                 myAnim.SetBool("isJumping", true);
                 powerAttackTime = Time.time + powerAttackDuration;
                 powerShootTime = Time.time + 1.0f;
@@ -182,8 +177,12 @@ public class PlayerController : MonoBehaviour
 
     void Move(float wInput, float hInput)
     {
+           
         transform.position += Vector3.up * hInput * speed * Time.deltaTime;
-        transform.position += Vector3.right * wInput * speed * Time.deltaTime;
+        if (transform.position.y <= -0.85f && transform.position.y >= -4.0f)    
+            transform.position += Vector3.right * wInput * speed * Time.deltaTime;
+        
+             
     }
 
     void setNormalWeaponAttributes()
@@ -233,10 +232,14 @@ public class PlayerController : MonoBehaviour
 
     void stopForce()
     {
+        if (myRB.velocity.y <= 0)
+            isFlying = false;
         myRB.velocity = Vector2.zero;            
         if(!isUsingPowerShot)
             shadow.GetComponent<ShadowController>().setScaling(false);
     }
+
+    
 
     void ShootOnAir()
     {
@@ -259,14 +262,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void SwitchWeapon()
-    {
-        if (weaponsManager)
-        {
-            weaponsManager.GetComponent<WeaponsController>().switchWeapon();
-            currentWeapon = weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString();
-            weapon = (GameObject)Resources.Load("Prefabs/Weapons/" + currentWeapon, typeof(GameObject));
-        }
+    void PrepareWeapon()
+    {       
+         currentWeapon = weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString();
+         weapon = (GameObject)Resources.Load("Prefabs/Weapons/" + currentWeapon, typeof(GameObject));
+         //Debug.Log(weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString());
 
         GameObject weaponPos = transform.Find(currentWeapon + " pos").gameObject;
         if (weaponPos)
@@ -275,11 +275,36 @@ public class PlayerController : MonoBehaviour
             attackWeaponPos = weaponPos.transform.GetChild(1);
         }
 
-        Destroy(myWeapon);
         myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
         setNormalWeaponAttributes();
         attackDuration = myWeapon.GetComponent<GunController>().getShootDuration();
         attackAnimSpeed = myWeapon.GetComponent<GunController>().getShootAnimSpeed();
+    }
+
+    void SwitchWeapon()
+    {
+        if (!isAttacking && !isUsingPowerShot)
+        {
+            if (weaponsManager)
+            {
+                weaponsManager.GetComponent<WeaponsController>().switchWeapon();
+                currentWeapon = weaponsManager.GetComponent<WeaponsController>().getCurrentWeaponString();
+                weapon = (GameObject)Resources.Load("Prefabs/Weapons/" + currentWeapon, typeof(GameObject));
+            }
+
+            GameObject weaponPos = transform.Find(currentWeapon + " pos").gameObject;
+            if (weaponPos)
+            {
+                normalWeaponPos = weaponPos.transform.GetChild(0);
+                attackWeaponPos = weaponPos.transform.GetChild(1);
+            }
+
+            Destroy(myWeapon);
+            myWeapon = Instantiate(weapon, normalWeaponPos.position, Quaternion.identity) as GameObject;
+            setNormalWeaponAttributes();
+            attackDuration = myWeapon.GetComponent<GunController>().getShootDuration();
+            attackAnimSpeed = myWeapon.GetComponent<GunController>().getShootAnimSpeed();
+        }
     }
 
     public void setShoot(bool shoot)

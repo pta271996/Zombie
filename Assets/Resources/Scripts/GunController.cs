@@ -15,6 +15,7 @@ public class GunController : MonoBehaviour {
     public Animator myAnim;
     public float shootDuration;
     public float shootAnimSpeed;
+    public Transform brainPos;
 
     private float brainAngle;
 
@@ -76,7 +77,7 @@ public class GunController : MonoBehaviour {
     public void PowerShoot()
     {
         myAnim.SetBool("isPowerShooting", true);
-        Instantiate(brain, shootPos.position, Quaternion.Euler(new Vector3(0,0,brainAngle)));
+        Instantiate(brain, brainPos.position, Quaternion.Euler(new Vector3(0, 0, brainAngle)));
         brainAngle += 5.0f;
     }
 

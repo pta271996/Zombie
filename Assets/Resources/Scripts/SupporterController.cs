@@ -56,14 +56,11 @@ public class SupporterController : MonoBehaviour {
 
         Vector3 dir = enemy.transform.position - aimingSystem.transform.position;
         dir.Normalize();
-        Debug.Log(enemy.name);
 
         if (Vector3.Distance(aimingSystem.transform.position, enemy.transform.position) <= shootDistance)
             canShoot = true;
 
         float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        Debug.Log(zAngle);
 
         Quaternion desiredRot = Quaternion.Euler(0, 0, zAngle);
 

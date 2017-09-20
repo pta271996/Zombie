@@ -19,11 +19,12 @@ public class WeaponsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        weapon1 = "ak-47";
+        weapon1 = "uzi";
         weapon2 = "battery gun";
-        weapon3 = "bazooka";
+        weapon3 = "bubble gun";
 
-        currentWP = 3;
+        currentWP = 1;
+        setWeaponIcon();
         setCurrentWeaponImage();
 	}
 	
@@ -90,7 +91,7 @@ public class WeaponsController : MonoBehaviour {
         if (currentWP == 3)
             return weapon3;
 
-        return null;
+        return weapon1;
     }
 
     public void setCurrentWeaponImage()
@@ -115,6 +116,13 @@ public class WeaponsController : MonoBehaviour {
             imgWP2.color = new Color(1.0f, 1.0f, 1.0f, 0.51f);
             imgWP3.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
+    }
+
+    public void setWeaponIcon()
+    {
+        imgWP1.sprite = Resources.Load<Sprite>("Graphic/UI/" + weapon1+ " icon");
+        imgWP2.sprite = Resources.Load<Sprite>("Graphic/UI/" + weapon2 + " icon");
+        imgWP3.sprite = Resources.Load<Sprite>("Graphic/UI/" + weapon3 + " icon");
     }
 
     public void switchWeapon()
