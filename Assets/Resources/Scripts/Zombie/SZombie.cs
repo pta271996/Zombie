@@ -37,7 +37,13 @@ public class SZombie : MonoBehaviour {
     private GameObject kidney;
     private GameObject bone;
 
+
     
+    void Start()
+    {
+        
+    }
+
 	protected int line;
 
 	public void Move()
@@ -155,6 +161,9 @@ public class SZombie : MonoBehaviour {
         }
         else if (isDeadByHeadShot)
         {
+            GameObject powerManager = GameObject.Find("PowerManager");
+            powerManager.GetComponent<PowerController>().increasePower();           
+
             myAnim.SetBool("isDeadByHeadShot", true);
             if (gameObject.GetComponent<MoveUp>())
                 gameObject.GetComponent<MoveUp>().Move();      
@@ -172,7 +181,9 @@ public class SZombie : MonoBehaviour {
             
         }
         else if (isDeadByBoom)
-            myAnim.SetBool("isDeadByBoom", true);
+        {
+            myAnim.SetBool("isDeadByBoom", true);            
+        }
       
 		Destroy (gameObject, 2.0f);
 	}

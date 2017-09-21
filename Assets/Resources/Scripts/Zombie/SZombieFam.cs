@@ -56,9 +56,15 @@ public class SZombieFam : SZombie
         {
             if (enemy)
             {
-                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
+                if(enemy.GetComponent<PlayerController>().getFlying())
+                    transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * 0.0f);
+                else
+                    transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
             }
         }
+
+        if (isDeadByBoom)
+            GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<SpriteRenderer>().material.color, new Color(1.0f, 0.0f, 0.0f, 1.0f), 1.5f * Time.deltaTime);
     }
 
 
@@ -124,6 +130,16 @@ public class SZombieFam : SZombie
         {
             setDead();
             makeDead();
+        }
+
+        if(otherColl.tag == "projectile")
+        {
+            if (!isDead)
+            {
+                int damage = otherColl.gameObject.GetComponent<ProjectileController>().getDamage();
+                setDead();
+                getDamaged(damage);             
+            }
         }
     }
 

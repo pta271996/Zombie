@@ -9,6 +9,10 @@ public class WeaponsController : MonoBehaviour {
     public Image imgWP2;
     public Image imgWP3;
 
+    public Text txtBulletNum1;
+    public Text txtBulletNum2;
+    public Text txtBulletNum3;
+
     private string weapon1;
     private string weapon2;
     private string weapon3;
@@ -19,7 +23,7 @@ public class WeaponsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        weapon1 = "uzi";
+        weapon1 = "ak-47";
         weapon2 = "battery gun";
         weapon3 = "bubble gun";
 
@@ -131,5 +135,23 @@ public class WeaponsController : MonoBehaviour {
         if (currentWP > 3)
             currentWP = 1;
         setCurrentWeaponImage();
+    }
+
+    public void setTextBulletNum(int num)
+    {
+        if (currentWP == 1)
+        {
+            txtBulletNum1.text = num.ToString();
+        }
+
+        if (currentWP == 2)
+        {
+            txtBulletNum2.text = num.ToString();
+        }
+
+        if (currentWP == 3)
+        {
+            txtBulletNum3.text = num.ToString();
+        }
     }
 }

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRB;   
     public GameObject extraBodyParts;
     public GameObject weapon;
-    public GameObject myGrenade;
+    public GameObject myProjectile;
     public GameObject ground;
     public Transform normalWeaponPos;
     public Transform attackWeaponPos;
@@ -32,10 +32,13 @@ public class PlayerController : MonoBehaviour
     private GameObject myWeapon;
     private GameObject shadow;
     public GameObject weaponsManager;
+    public GameObject powerManager;
+    public GameObject powerPS;
 
     private bool isButtonShootPressed;
     private bool isButtonMoveUpPressed;
     private bool isButtonMoveDownPressed;
+    private bool isButtonThrowPressed;
 
     private float powerAttackTime;
     private float powerAttackDuration;
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public Image imgMoveUp;
     public Image imgMoveDown;
     public Image imgSwitchWP;
+    public Image imgThrow;
 
 	// Use this for initialization
 	void Start () 
@@ -73,6 +77,7 @@ public class PlayerController : MonoBehaviour
         isButtonShootPressed = false;
         isButtonMoveUpPressed = false;
         isButtonMoveDownPressed = false;
+        isButtonThrowPressed = false;
 
         //weaponsManager = GameObject.FindGameObjectWithTag("WeaponsManager");
         //if (weaponsManager)
@@ -87,6 +92,11 @@ public class PlayerController : MonoBehaviour
     {
         if(!isDead)
         {
+            if (powerManager.GetComponent<PowerController>().isFull())
+                powerPS.SetActive(true);
+            else
+                powerPS.SetActive(false);
+
 
             if (transform.position.y > -0.85f && !isFlying)
                 transform.position = new Vector3(transform.position.x, -0.85f, transform.position.z);
@@ -109,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 myAnim.SetBool("isThrowing", isThrowing);
             }
 
-            if (Input.GetKeyDown(KeyCode.L) && !isUsingPowerShot)
+            if (Input.GetKeyDown(KeyCode.L) && !isUsingPowerShot && powerManager.GetComponent<PowerController>().isFull())
             {
                 isUsingPowerShot = true;
                 isFlying = true;
@@ -158,7 +168,7 @@ public class PlayerController : MonoBehaviour
                 myAnim.speed = attackAnimSpeed;
                 Shoot();
             }
-            else if (Input.GetKeyDown(KeyCode.T) && !isThrowing && !isAttacking)
+            else if (( isButtonThrowPressed ||Input.GetKey(KeyCode.T)) && !isThrowing && !isAttacking)
             {
                 isThrowing = true;
                 isRunning = false;
@@ -204,17 +214,19 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         myWeapon.GetComponent<GunController>().Shoot();
+        weaponsManager.GetComponent<WeaponsController>().setTextBulletNum(myWeapon.GetComponent<GunController>().getBulletNum());
     }
 
     void PowerShoot()
-    {
-        myWeapon.GetComponent<GunController>().PowerShoot();
+    {  
+        powerManager.GetComponent<PowerController>().resetPowerNum();
+        myWeapon.GetComponent<GunController>().PowerShoot();     
     }
 
     void Throw()
     {
-        Instantiate(myGrenade, throwPos.position, Quaternion.identity);
-        Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
+        Instantiate(myProjectile, throwPos.position, Quaternion.identity);
+        //Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 
     void Jump()
@@ -361,5 +373,23 @@ public class PlayerController : MonoBehaviour
             imgSwitchWP.color = new Color(1.0f, 1.0f, 1.0f, 0.55f);
         }
     }
-   
+
+    public void setThrow(bool Throw)
+    {
+        isButtonThrowPressed = Throw;
+
+        if (Throw)
+        {
+            imgThrow.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            imgThrow.color = new Color(1.0f, 1.0f, 1.0f, 0.55f);
+        }
+    }
+
+    public bool getFlying()
+    {
+        return isFlying;
+    }
 }

@@ -157,6 +157,8 @@
      <Compile Include="Assets\Resources\Scripts\ObstacleManager.cs" />
      <Compile Include="Assets\Resources\Scripts\OrganController.cs" />
      <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\PowerController.cs" />
+     <Compile Include="Assets\Resources\Scripts\ProjectileController.cs" />
      <Compile Include="Assets\Resources\Scripts\RocketController.cs" />
      <Compile Include="Assets\Resources\Scripts\SetParent.cs" />
      <Compile Include="Assets\Resources\Scripts\ShadowController.cs" />

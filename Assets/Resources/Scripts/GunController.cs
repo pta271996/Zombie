@@ -17,6 +17,9 @@ public class GunController : MonoBehaviour {
     public float shootAnimSpeed;
     public Transform brainPos;
 
+    private int bulletNum;
+    public int bulletsPerShot;
+
     private float brainAngle;
 
 	// Use this for initialization
@@ -24,6 +27,7 @@ public class GunController : MonoBehaviour {
     {
         setNormalAngle();
         brainAngle = -75.0f;
+        bulletNum = 80;
 	}
 	
 	// Update is called once per frame
@@ -66,12 +70,16 @@ public class GunController : MonoBehaviour {
 
     public void Shoot()
     {
-        myAnim.SetBool("isShooting", true);
-        Instantiate(bullet, shootPos.position, bullet.transform.rotation);
-        if(muzzleFlash)
-            Instantiate(muzzleFlash, muzzlePos.position, muzzleFlash.transform.rotation);
-        if(bulletShell)
-            Instantiate(bulletShell, new Vector3(muzzlePos.position.x, muzzlePos.position.y, 0.0f), bulletShell.transform.rotation);
+        if (bulletNum > 0)
+        {
+            bulletNum -= bulletsPerShot;
+            myAnim.SetBool("isShooting", true);
+            Instantiate(bullet, shootPos.position, bullet.transform.rotation);
+            if (muzzleFlash)
+                Instantiate(muzzleFlash, muzzlePos.position, muzzleFlash.transform.rotation);
+            if (bulletShell)
+                Instantiate(bulletShell, new Vector3(muzzlePos.position.x, muzzlePos.position.y, 0.0f), bulletShell.transform.rotation);
+        }
     }
 
     public void PowerShoot()
@@ -99,4 +107,26 @@ public class GunController : MonoBehaviour {
         return shootAnimSpeed;
     }
     
+
+    public void setBulletNum(int num)
+    {
+        if(num >= 0)
+            bulletNum = num;
+    }
+
+    public int getBulletNum()
+    {
+        return bulletNum;
+    }
+
+    public void setBulletsPerShot(int num)
+    {
+        if (num >= 1)
+            bulletsPerShot = num;
+    }
+
+    public int getBulletsPerShot()
+    {
+        return bulletsPerShot;
+    }
 }

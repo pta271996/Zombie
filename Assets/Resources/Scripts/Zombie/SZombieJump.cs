@@ -54,11 +54,17 @@ public class SZombieJump : SZombie
         {
             if (enemy)
             {
-                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
+                if (enemy.GetComponent<PlayerController>().getFlying())
+                    transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * 0.0f);
+                else
+                    transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, Time.deltaTime * speed);
             }
         }
 
         myAnim.SetFloat("verticalSpeed", myRB.velocity.y);
+
+        if(isDeadByBoom)
+            GetComponent<SpriteRenderer>().material.color = Color.Lerp(GetComponent<SpriteRenderer>().material.color, new Color(1.0f, 0.0f, 0.0f, 1.0f), 1.5f * Time.deltaTime);
 	}
 
     void PrepareJump()
