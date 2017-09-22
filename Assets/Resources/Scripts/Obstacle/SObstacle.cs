@@ -27,6 +27,8 @@ public class SObstacle : MonoBehaviour {
     void Start()
     {
         currentHealth = health;
+        state = 1;
+        loadStateSprite();
         isBeingAttacked = false;
         isDead = false;
     }

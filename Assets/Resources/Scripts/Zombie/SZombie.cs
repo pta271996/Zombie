@@ -184,7 +184,11 @@ public class SZombie : MonoBehaviour {
         {
             myAnim.SetBool("isDeadByBoom", true);            
         }
-      
+
+
+        GameObject gameManager = GameObject.Find("GameManager");
+        gameManager.GetComponent<GameManager>().increaseDeadZombieNum(); 
+
 		Destroy (gameObject, 2.0f);
 	}
 	public float Speech{

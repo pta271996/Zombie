@@ -145,6 +145,12 @@ public class SZombieJump : SZombie
             setDead();
             makeDead();
         }
+
+        if (otherColl.tag == "saw")
+        {
+            setDeadByHeadShot();
+            makeDead();
+        }
     }
 
     void OnTriggerExit2D(Collider2D otherColl)

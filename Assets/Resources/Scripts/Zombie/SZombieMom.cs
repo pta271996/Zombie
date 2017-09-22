@@ -167,7 +167,7 @@ public class SZombieMom : MonoBehaviour {
             }
         }
 
-        if (otherColl.tag == "brain")
+        if (otherColl.tag == "brain" || otherColl.tag == "saw")
         {
             makeDead();
         }

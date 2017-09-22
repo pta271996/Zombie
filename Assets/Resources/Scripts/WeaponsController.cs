@@ -23,7 +23,7 @@ public class WeaponsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        weapon1 = "ak-47";
+        weapon1 = "rifle";
         weapon2 = "battery gun";
         weapon3 = "bubble gun";
 

@@ -132,6 +132,12 @@ public class SZombieFam : SZombie
             makeDead();
         }
 
+        if (otherColl.tag == "saw")
+        {
+            setDeadByHeadShot();
+            makeDead();
+        }
+
         if(otherColl.tag == "projectile")
         {
             if (!isDead)

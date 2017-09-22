@@ -160,6 +160,7 @@
      <Compile Include="Assets\Resources\Scripts\PowerController.cs" />
      <Compile Include="Assets\Resources\Scripts\ProjectileController.cs" />
      <Compile Include="Assets\Resources\Scripts\RocketController.cs" />
+     <Compile Include="Assets\Resources\Scripts\SawController.cs" />
      <Compile Include="Assets\Resources\Scripts\SetParent.cs" />
      <Compile Include="Assets\Resources\Scripts\ShadowController.cs" />
      <Compile Include="Assets\Resources\Scripts\ShellController.cs" />
