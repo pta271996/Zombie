@@ -225,7 +225,7 @@ public class PlayerController : MonoBehaviour
 
     void Throw()
     {
-        Instantiate(myProjectile, throwPos.position, Quaternion.identity);
+        Instantiate(myProjectile, throwPos.position, myProjectile.transform.rotation);
         //Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 

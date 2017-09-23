@@ -134,6 +134,7 @@
      <Compile Include="Assets\Resources\Scripts\Bullet\SRay.cs" />
      <Compile Include="Assets\Resources\Scripts\BulletShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Resources\Scripts\CannonController.cs" />
      <Compile Include="Assets\Resources\Scripts\CarBodyController.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\BloodHitController.cs" />
      <Compile Include="Assets\Resources\Scripts\Effect\CleanerRightController.cs" />
@@ -169,6 +170,7 @@
      <Compile Include="Assets\Resources\Scripts\SpaceShipController.cs" />
      <Compile Include="Assets\Resources\Scripts\SupporterController.cs" />
      <Compile Include="Assets\Resources\Scripts\TankController.cs" />
+     <Compile Include="Assets\Resources\Scripts\TimeManager.cs" />
      <Compile Include="Assets\Resources\Scripts\WeaponsController.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombie.cs" />
      <Compile Include="Assets\Resources\Scripts\Zombie\SZombieA.cs" />
