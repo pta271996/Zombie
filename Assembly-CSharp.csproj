@@ -115,6 +115,7 @@
      <Compile Include="Assets\AssetsFromStore\RainMaker\Prefab\RainScript2D.cs" />
      <Compile Include="Assets\Resources\Scripts\AddForce.cs" />
      <Compile Include="Assets\Resources\Scripts\AirStrikeController.cs" />
+     <Compile Include="Assets\Resources\Scripts\AngleRotate.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SBackgound.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SHalloweenBG.cs" />
      <Compile Include="Assets\Resources\Scripts\Background\SIceBG.cs" />
@@ -146,6 +147,7 @@
      <Compile Include="Assets\Resources\Scripts\GrenadeController.cs" />
      <Compile Include="Assets\Resources\Scripts\GroundFollow.cs" />
      <Compile Include="Assets\Resources\Scripts\GunController.cs" />
+     <Compile Include="Assets\Resources\Scripts\HelicopterController.cs" />
      <Compile Include="Assets\Resources\Scripts\Interface\RandomInterface.cs" />
      <Compile Include="Assets\Resources\Scripts\LaserController.cs" />
      <Compile Include="Assets\Resources\Scripts\Level\Level1.cs" />
