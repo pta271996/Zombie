@@ -9,8 +9,10 @@ public class BulletShellController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        GameObject soundManager = GameObject.Find("SoundManager");
+        soundManager.GetComponent<SoundsManager>().playBulletImpactSound();
         myRB.AddForce(new Vector2(-6.0f, 3.5f), ForceMode2D.Impulse);
-        myRB.AddTorque(45);
+        myRB.AddTorque(45);       
 	}
 	
 	// Update is called once per frame

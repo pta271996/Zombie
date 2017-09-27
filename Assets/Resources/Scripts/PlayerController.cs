@@ -54,9 +54,13 @@ public class PlayerController : MonoBehaviour
     public Image imgSwitchWP;
     public Image imgThrow;
 
+    public GameObject soundManager;
+
 	// Use this for initialization
 	void Start () 
     {
+        
+
         isRunning = false;
         isAttacking = false;
         isGettingHurted = false;
@@ -215,6 +219,8 @@ public class PlayerController : MonoBehaviour
     {
         myWeapon.GetComponent<GunController>().Shoot();
         weaponsManager.GetComponent<WeaponsController>().setTextBulletNum(myWeapon.GetComponent<GunController>().getBulletNum());
+        soundManager.GetComponent<SoundsManager>().playGunSound(myWeapon.name);
+        Debug.Log(myWeapon.name);
     }
 
     void PowerShoot()
@@ -226,6 +232,7 @@ public class PlayerController : MonoBehaviour
     void Throw()
     {
         Instantiate(myProjectile, throwPos.position, myProjectile.transform.rotation);
+        soundManager.GetComponent<SoundsManager>().playThrowSound();
         //Instantiate(ground, new Vector2(transform.position.x + 8.97f, transform.position.y - 0.83f), Quaternion.identity);
     }
 

@@ -33,7 +33,7 @@ public class SBulletC : SBullet
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if (otherColl.tag == "zombie"  || otherColl.tag == "zombie mom" || otherColl.tag == "car" || otherColl.tag == "bike" || otherColl.tag == "mirror" || otherColl.tag == "zombie head" || otherColl.tag == "zombie shield")
+        if (otherColl.tag == "zombie"  || otherColl.tag == "zombie mom" || otherColl.tag == "car" || otherColl.tag == "mower" || otherColl.tag == "bike" || otherColl.tag == "mirror" || otherColl.tag == "zombie head" || otherColl.tag == "zombie shield")
         {
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             Destroy(gameObject);

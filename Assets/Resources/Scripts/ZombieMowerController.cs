@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ZombieMowerController : MonoBehaviour {
 
+    public GameObject skeleton;
+    public Transform skeletonPos;
     public float speed;
     public Animator myAnim;
     private bool isDead;
@@ -34,6 +36,15 @@ public class ZombieMowerController : MonoBehaviour {
         Destroy(gameObject, 2.0f);
     }
 
+    public void makeDeadByElectric()
+    {
+        Instantiate(skeleton, skeletonPos.position, skeleton.transform.rotation);
+        isDead = true;
+        myAnim.SetBool("isDead", true);
+        Destroy(transform.Find("body").GetComponent<PolygonCollider2D>());
+        Destroy(gameObject, 2.0f);
+    }
+
     public void makeDeadByBoom()
     {
         if (!isDead)
@@ -45,6 +56,9 @@ public class ZombieMowerController : MonoBehaviour {
                 if(child.gameObject.GetComponent<AddForce>())
                 child.gameObject.GetComponent<AddForce>().Explode();
             }
+
+            GameObject shadow = transform.Find("shadow").gameObject;
+            Destroy(shadow);
 
             GameObject leg1 = transform.Find("leg 1").gameObject;
             GameObject lowerLeg1 = leg1.transform.GetChild(1).gameObject;

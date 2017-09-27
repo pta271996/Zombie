@@ -9,6 +9,8 @@ public class ExplosionController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        GameObject soundManager = GameObject.Find("SoundManager");
+        soundManager.GetComponent<SoundsManager>().playExplosionSound();
         Invoke("RemoveExplosionArea", removeTime);
 	}
 	

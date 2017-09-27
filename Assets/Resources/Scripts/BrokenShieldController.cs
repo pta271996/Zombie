@@ -10,6 +10,8 @@ public class BrokenShieldController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        GameObject soundManager = GameObject.Find("SoundManager");
+        soundManager.GetComponent<SoundsManager>().playBrokenGlassSound();
         shieldPiece1 = transform.GetChild(0).gameObject;
         shieldPiece2 = transform.GetChild(1).gameObject;
 

@@ -37,5 +37,10 @@ public class LaserController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        if (otherColl.tag == "zombie head")
+        {
+            Instantiate(BloodHit, otherColl.transform.position, BloodHit.transform.rotation);
+        }
     }
 }

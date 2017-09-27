@@ -169,7 +169,7 @@
      <Compile Include="Assets\Resources\Scripts\ShellController.cs" />
      <Compile Include="Assets\Resources\Scripts\Singleton.cs" />
      <Compile Include="Assets\Resources\Scripts\SkeletonController.cs" />
-     <Compile Include="Assets\Resources\Scripts\SpaceShipController.cs" />
+     <Compile Include="Assets\Resources\Scripts\SoundsManager.cs" />
      <Compile Include="Assets\Resources\Scripts\SupporterController.cs" />
      <Compile Include="Assets\Resources\Scripts\TankController.cs" />
      <Compile Include="Assets\Resources\Scripts\TimeManager.cs" />
@@ -193,6 +193,7 @@
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\LutGen.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+     <None Include="Assets\AssetsFromStore\BloodSFX\ReadMe.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ACES.cginc" />

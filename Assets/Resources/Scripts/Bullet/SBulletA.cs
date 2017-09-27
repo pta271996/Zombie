@@ -27,11 +27,15 @@ public class SBulletA : SBullet {
 		base.Move ();
 		//transform.position += Vector3.right * Time.deltaTime * speed;
 	}
+
+    
+
 	//ham trigger thi tuy theo loai bullet ma ta se xu ly
 	void OnTriggerEnter2D(Collider2D otherColl)
 	{
 		if (otherColl.tag == "zombie") 
-		{         
+		{
+            PlaySound();
             if (otherColl is BoxCollider2D)
             {
                 if (otherColl.gameObject.GetComponent<SZombieFam>())
@@ -54,7 +58,7 @@ public class SBulletA : SBullet {
 			Destroy(gameObject);
 		}
 
-        if (otherColl.tag == "car" || otherColl.tag == "bike")
+        if (otherColl.tag == "car" || otherColl.tag == "bike" || otherColl.tag == "mower")
         {
             Instantiate(shell, transform.position, shell.transform.rotation);
             if(otherColl.GetComponent<CarBodyController>())

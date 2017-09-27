@@ -42,6 +42,8 @@ public class MirrorController : MonoBehaviour {
 
     void makeDead()
     {
+        GameObject soundManager = GameObject.Find("SoundManager");
+        soundManager.GetComponent<SoundsManager>().playBrokenGlassSound();
         Destroy(gameObject.GetComponent<PolygonCollider2D>());
         Instantiate(brokenMirror1, transform.position, brokenMirror1.transform.rotation);
         Instantiate(brokenMirror2, transform.position, brokenMirror1.transform.rotation);
@@ -50,7 +52,7 @@ public class MirrorController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.tag == "bullet")
+        if(otherColl.tag == "bullet" || otherColl.tag == "projectile")
         {
             getDamaged();
         }

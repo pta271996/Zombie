@@ -18,6 +18,8 @@ public class ShellController : MonoBehaviour {
         myRigidbody.AddForce(transform.right * force);
         myRigidbody.AddTorque(0.01f*force);
 
+        Invoke("PlaySound", 0.2f);
+
         StartCoroutine(Fade());
 	}
 
@@ -38,5 +40,11 @@ public class ShellController : MonoBehaviour {
         }
 
         Destroy(gameObject);
+    }
+
+    void PlaySound()
+    {
+        GameObject soundManager = GameObject.Find("SoundManager");
+        soundManager.GetComponent<SoundsManager>().playShellSound();
     }
 }

@@ -25,7 +25,7 @@ public class BubbleController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if (otherColl.tag == "zombie" || otherColl.tag == "zombie mom" || otherColl.tag == "zombie shield")
+        if (otherColl.tag == "zombie" || otherColl.tag == "zombie mom" || otherColl.tag == "zombie shield" || otherColl.tag == "car");
             Destroy(gameObject);
     }
 }

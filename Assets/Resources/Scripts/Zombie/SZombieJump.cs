@@ -7,7 +7,10 @@ public class SZombieJump : SZombie
     public GameObject skeleton;
     public float jumpTime;
     public float jumpDuration;
+    public int soundIndex;
+    public float moanTime;
 
+    private bool isPlayingSound;
     private bool isJumping;
     private GameObject enemy;
     private GameObject obstacle;
@@ -17,7 +20,9 @@ public class SZombieJump : SZombie
         isAttacking = false;
         isDead = false;
         isDeadByHeadShot = false;
-        isDeadByBoom = false;      
+        isDeadByBoom = false;
+
+        isPlayingSound = false;
     }
 
 	// Use this for initialization
@@ -34,6 +39,13 @@ public class SZombieJump : SZombie
 	// Update is called once per frame
 	void Update () 
     {
+        if (Time.time >= moanTime && !isPlayingSound)
+        {
+            isPlayingSound = true;
+            GameObject soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
+        }
+
         if (!isAttacking && !isDead)
             Move();
         if (isAttacking && Time.time >= attackTime)
@@ -42,6 +54,8 @@ public class SZombieJump : SZombie
             {
                 obstacle.GetComponent<SObstacle>().getDamaged(damage);
                 attackTime = Time.time + attackDuration;
+                GameObject soundManager = GameObject.Find("SoundManager");
+                soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
             }
         }
 

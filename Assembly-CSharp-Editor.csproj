@@ -99,6 +99,7 @@
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\ParadeRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\LutGen.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\HistogramRender.shader" />
+     <None Include="Assets\AssetsFromStore\BloodSFX\ReadMe.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\UI\CurveBackground.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ScreenSpaceReflection.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ACES.cginc" />

@@ -13,7 +13,10 @@ public class ZombieShieldController : MonoBehaviour {
     public float attackTime;
     public float attackDuration;
     public Animator myAnim;
+    public int soundIndex;
+    public float moanTime;
 
+    private bool isPlayingSound;
     private bool isAttacking;
     private bool isDead;
     private bool isChasingEnemy;
@@ -27,6 +30,7 @@ public class ZombieShieldController : MonoBehaviour {
         isAttacking = false;
         isDead = false;
         isChasingEnemy = false;
+        isPlayingSound = false;
 
         enemy = GameObject.FindGameObjectWithTag("Player");
         obstacle = GameObject.FindGameObjectWithTag("obstacle");
@@ -35,6 +39,13 @@ public class ZombieShieldController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (Time.time >= moanTime && !isPlayingSound)
+        {
+            isPlayingSound = true;
+            GameObject soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
+        }
+
         if (!isAttacking && !isDead && !isChasingEnemy)
             Move();
 
@@ -46,6 +57,8 @@ public class ZombieShieldController : MonoBehaviour {
                 {
                     obstacle.GetComponent<SObstacle>().getDamaged(damage);
                     attackTime = Time.time + attackDuration;
+                    GameObject soundManager = GameObject.Find("SoundManager");
+                    soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
                 }
             }
         }

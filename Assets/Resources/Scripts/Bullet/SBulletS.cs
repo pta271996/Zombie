@@ -42,6 +42,7 @@ public class SBulletS : SBullet {
     {
         if (otherColl.tag == "zombie")
         {
+            PlaySound();
             if (otherColl is BoxCollider2D)
             {
                 if (otherColl.gameObject.GetComponent<SZombieFam>())
@@ -64,7 +65,7 @@ public class SBulletS : SBullet {
             Destroy(gameObject);
         }
 
-        if (otherColl.tag == "car" || otherColl.tag == "bike")
+        if (otherColl.tag == "car" || otherColl.tag == "bike" || otherColl.tag == "mower")
         {
             Instantiate(shell, transform.position, shell.transform.rotation);
             if (otherColl.GetComponent<CarBodyController>())

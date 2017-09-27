@@ -12,7 +12,7 @@ public class SZombieMom : MonoBehaviour {
     public float giveBirthPosX;
     public float giveBirthDuration;
     public float delayTime;
-
+    public int soundIndex;
 
     private float firstY;
     private float secondY;
@@ -82,6 +82,8 @@ public class SZombieMom : MonoBehaviour {
                     myAnim.SetBool("isAttacking", true);
                     isSpawningChild = true;
                     giveBirhtTime = Time.time + giveBirthDuration;
+                    GameObject soundManager = GameObject.Find("SoundManager");
+                    soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
                     Invoke("GiveBirth", 0.25f);
                 }
                 if (!isTarget2ndY && Vector3.Distance(transform.position, firstPos) <= 0.01f)
@@ -90,6 +92,8 @@ public class SZombieMom : MonoBehaviour {
                     myAnim.SetBool("isAttacking", true);
                     isSpawningChild = true;
                     giveBirhtTime = Time.time + giveBirthDuration;
+                    GameObject soundManager = GameObject.Find("SoundManager");
+                    soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
                     Invoke("GiveBirth", delayTime);
                 }
             }

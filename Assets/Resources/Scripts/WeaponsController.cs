@@ -23,9 +23,9 @@ public class WeaponsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        weapon1 = "rifle";
-        weapon2 = "battery gun";
-        weapon3 = "bubble gun";
+        weapon1 = "laser gun";
+        weapon2 = "tazer";
+        weapon3 = "uzi";
 
         currentWP = 1;
         setWeaponIcon();

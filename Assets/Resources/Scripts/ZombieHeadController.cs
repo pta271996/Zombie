@@ -20,6 +20,7 @@ public class ZombieHeadController : MonoBehaviour {
 
     void RemoveHead()
     {
+        Destroy(GetComponent<CircleCollider2D>());
         myRB.gravityScale = 1.0f;
         myRB.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
         myRB.AddTorque(angle);
@@ -27,8 +28,8 @@ public class ZombieHeadController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D otherColl)
     {
-        if(otherColl.tag == "bullet")
-        {
+        if(otherColl.tag == "bullet" || otherColl.tag == "laser" || otherColl.tag == "projectile")
+        {           
             RemoveHead();
             if (transform.root.GetComponent<ZombieCarController>())
                 transform.root.GetComponent<ZombieCarController>().makeDead();
@@ -37,6 +38,16 @@ public class ZombieHeadController : MonoBehaviour {
             else if (transform.root.GetComponent<ZombieMowerController>())
                 transform.root.GetComponent<ZombieMowerController>().makeDead();
             Destroy(gameObject, 1.5f);
+        }
+
+        if(otherColl.tag == "electricity")
+        {
+            if (transform.root.GetComponent<ZombieMowerController>())
+            {
+                Destroy(GetComponent<CircleCollider2D>());
+                transform.root.GetComponent<ZombieMowerController>().makeDeadByElectric();
+                Destroy(gameObject, 1.5f);
+            }
         }
     }
 }

@@ -31,6 +31,8 @@ public class BatteryController : MonoBehaviour {
     {
         if (otherColl.tag == "zombie")
         {
+            GameObject soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundsManager>().playBulletExplodeSound();
             Instantiate(explosion, transform.position, explosion.transform.rotation);
             if (otherColl.gameObject.GetComponent<SZombieFam>())
             {

@@ -5,10 +5,16 @@ using UnityEngine;
 public class SZombieFam : SZombie
 {
     public GameObject skeleton;
+    public int soundIndex;
+    public float moanTime;
+
+    private bool isPlayingSound;
+    private bool isShocked;
     private float realSpeed;
     private int realHealth;
     private GameObject enemy;
     private GameObject obstacle;
+    
 
     void Awake()
     {
@@ -18,6 +24,8 @@ public class SZombieFam : SZombie
         isDeadByBoom = false;
         isFrozen = false;
         isChasingEnemy = false;
+        isPlayingSound = false;
+        isShocked = false;
 
         realSpeed = speed;
         realHealth = health;
@@ -28,21 +36,31 @@ public class SZombieFam : SZombie
     {
         enemy = GameObject.FindGameObjectWithTag("Player");
         obstacle = GameObject.FindGameObjectWithTag("obstacle");
+        moanTime = Time.time + moanTime;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Time.time >= moanTime && !isPlayingSound)
+        {
+            isPlayingSound = true;
+            GameObject soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
+        }
+
         if (!isAttacking && !isDead && !isChasingEnemy)
             Move();
         if(isAttacking)
         {
             if(obstacle)
             {
-                if(Time.time >= attackTime)
+                if(Time.time >= attackTime )
                 {
                     obstacle.GetComponent<SObstacle>().getDamaged(damage);
                     attackTime = Time.time + attackDuration;
+                    GameObject soundManager = GameObject.Find("SoundManager");
+                    soundManager.GetComponent<SoundsManager>().playZombieSound(soundIndex);
                 }               
             }             
         }
@@ -104,9 +122,12 @@ public class SZombieFam : SZombie
             }
         }
 
-        if(otherColl.tag == "electricity")
+        if(otherColl.tag == "electricity" && !isShocked)
         {
+            isShocked = true;
             Instantiate(skeleton, transform.position, skeleton.transform.rotation);
+            GameObject gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<GameManager>().increaseDeadZombieNum(); 
             Destroy(gameObject);
         }
 
@@ -134,6 +155,8 @@ public class SZombieFam : SZombie
 
         if (otherColl.tag == "saw")
         {
+            GameObject soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundsManager>().playSawHitSound();
             setDeadByHeadShot();
             makeDead();
         }
@@ -151,14 +174,17 @@ public class SZombieFam : SZombie
 
     void BreakIce()
     {
-        isFrozen = false;
-        if(transform.childCount > 1)
-            transform.GetChild(1).gameObject.SetActive(false);
-        GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 1);      
-        health = realHealth;
-        GameObject icePrefab = (GameObject)Resources.Load("Prefabs/Effects/IceBreaking PS", typeof(GameObject));
-        Instantiate(icePrefab, transform.position, icePrefab.transform.rotation);
-        Invoke("ResetSpeed", 0.2f);
+        if (!isDead)
+        {
+            isFrozen = false;
+            if (transform.childCount > 1)
+                transform.GetChild(1).gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().material.color = new Color(1, 1, 1, 1);
+            health = realHealth;
+            GameObject icePrefab = (GameObject)Resources.Load("Prefabs/Effects/IceBreaking PS", typeof(GameObject));
+            Instantiate(icePrefab, transform.position, icePrefab.transform.rotation);
+            Invoke("ResetSpeed", 0.2f);
+        }
     }
 
     void ResetSpeed()

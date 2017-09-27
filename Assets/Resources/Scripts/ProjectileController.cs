@@ -7,7 +7,7 @@ public class ProjectileController : MonoBehaviour {
     public int damage;
     public float speed;
     public GameObject hitEffect;
-
+    public GameObject hitEffect2;
 
 	// Use this for initialization
 	void Start () 
@@ -36,11 +36,33 @@ public class ProjectileController : MonoBehaviour {
     {
         if(otherColl.tag == "zombie")
         {
+            GameObject soundManager = GameObject.Find("SoundManager");
+            if (gameObject.name == "cocktail(Clone)")
+                soundManager.GetComponent<SoundsManager>().playBrokenGlassSound();
+            else
+                soundManager.GetComponent<SoundsManager>().playProjectileHitSound();
             if (hitEffect)
                 Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+            if (hitEffect2)
+                Instantiate(hitEffect2, transform.position, hitEffect2.transform.rotation);
             Destroy(gameObject);
         }
+
+        if(otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "mower")
+        {
+            Destroy(gameObject);
+        }
+
+        if(otherColl.tag == "zombie head")
+        {
+            if (hitEffect)
+                Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
+            if (hitEffect2)
+                Instantiate(hitEffect2, transform.position, hitEffect2.transform.rotation);
+        }
     }
+
+
 
 
 }

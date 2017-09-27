@@ -19,4 +19,9 @@ public class SBullet : MonoBehaviour {
 		return damage;
 	}
 
+    public void PlaySound()
+    {
+        GameObject soundManager = GameObject.Find("SoundManager");
+        soundManager.GetComponent<SoundsManager>().playBulletHitSound();
+    }
 }
