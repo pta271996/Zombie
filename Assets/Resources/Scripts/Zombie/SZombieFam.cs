@@ -127,7 +127,9 @@ public class SZombieFam : SZombie
             isShocked = true;
             Instantiate(skeleton, transform.position, skeleton.transform.rotation);
             GameObject gameManager = GameObject.Find("GameManager");
-            gameManager.GetComponent<GameManager>().increaseDeadZombieNum(); 
+            gameManager.GetComponent<GameManager>().increaseDeadZombieNum();
+            GameObject powerManager = GameObject.Find("PowerManager");
+            powerManager.GetComponent<PowerController>().increasePower();     
             Destroy(gameObject);
         }
 

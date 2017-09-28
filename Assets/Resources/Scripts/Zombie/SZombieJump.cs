@@ -12,6 +12,7 @@ public class SZombieJump : SZombie
 
     private bool isPlayingSound;
     private bool isJumping;
+    private bool isShocked;
     private GameObject enemy;
     private GameObject obstacle;
 
@@ -23,6 +24,7 @@ public class SZombieJump : SZombie
         isDeadByBoom = false;
 
         isPlayingSound = false;
+        isShocked = false;
     }
 
 	// Use this for initialization
@@ -148,9 +150,14 @@ public class SZombieJump : SZombie
             }
         }
 
-        if (otherColl.tag == "electricity")
+        if (otherColl.tag == "electricity" && !isShocked)
         {
+            isShocked = true;
             Instantiate(skeleton, transform.position, skeleton.transform.rotation);
+            GameObject gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<GameManager>().increaseDeadZombieNum();
+            GameObject powerManager = GameObject.Find("PowerManager");
+            powerManager.GetComponent<PowerController>().increasePower();     
             Destroy(gameObject);
         }
 

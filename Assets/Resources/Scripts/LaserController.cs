@@ -31,6 +31,10 @@ public class LaserController : MonoBehaviour {
                 otherColl.gameObject.GetComponent<SZombieJump>().setDead();
                 otherColl.gameObject.GetComponent<SZombieJump>().makeDead();
             }
+
+            GameObject powerManager = GameObject.Find("PowerManager");
+            powerManager.GetComponent<PowerController>().increasePower();     
+
             Destroy(gameObject);
         }
         if (otherColl.tag == "car" || otherColl.tag == "mirror" || otherColl.tag == "bike" || otherColl.tag == "mower")

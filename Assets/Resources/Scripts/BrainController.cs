@@ -46,6 +46,8 @@ public class BrainController : MonoBehaviour {
         {
             Instantiate(liquidSplash, transform.position, liquidSplash.transform.rotation);
             Instantiate(acid, transform.position, acid.transform.rotation);
+            GameObject soundManager = GameObject.Find("SoundManager");
+            soundManager.GetComponent<SoundsManager>().playBulletHitSound();
             Destroy(gameObject);
         }
     }

@@ -51,11 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Editor\EffectControllerInspector.cs" />
-     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Editor\EffectToolBar.cs" />
-     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Editor\RenderEffectInspector.cs" />
-     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Editor\ShaderCustomEditor\ShaderMaterialsEditor.cs" />
-     <Compile Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Editor\XUIUtils.cs" />
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />
@@ -92,7 +87,6 @@
      <Compile Include="Assets\AssetsFromStore\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
      <Compile Include="Assets\AssetsFromStore\RainMaker\Editor\RainMakerEditor.cs" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\DepthOfField.shader" />
-     <None Include="Assets\AssetsFromStore\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Fog.shader" />
      <None Include="Assets\AssetsFromStore\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
@@ -113,18 +107,15 @@
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\FXAA3.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\MotionBlur.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
-     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\effect_distortion_mask.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Bluenoise64\LICENSE.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\BuiltinDebugViews.shader" />
      <None Include="Assets\AssetsFromStore\RainMaker\Prefab\RainShader.shader" />
-     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddSoftEffect.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Common.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Bluenoise64\COPYING.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\UI\Trackball.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Bloom.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\TAA.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\EyeHistogram.compute" />
-     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticlePremultiplyBlend.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\TAA.cginc" />
      <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\READ ME.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\EyeAdaptation.cginc" />
@@ -132,17 +123,14 @@
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\FXAA.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
-     <None Include="Assets\AssetsFromStore\_Creepy_Cat\3D Games Effects Pack Free\_FAQ - Informations\Help Readme SOS.txt" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\Bloom.shader" />
      <None Include="Assets\AssetsFromStore\RainMaker\Readme.txt" />
-     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleAddEffect.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\VectorscopeRender.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
      <None Include="Assets\AssetsFromStore\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
-     <None Include="Assets\AssetsFromStore\Particlecollection_Free samples\Plugins\Effect\Shader\ParticleBlendEffect.shader" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

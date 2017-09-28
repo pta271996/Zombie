@@ -58,9 +58,7 @@ public class PlayerController : MonoBehaviour
 
 	// Use this for initialization
 	void Start () 
-    {
-        
-
+    {       
         isRunning = false;
         isAttacking = false;
         isGettingHurted = false;
@@ -190,13 +188,10 @@ public class PlayerController : MonoBehaviour
 	}
 
     void Move(float wInput, float hInput)
-    {
-           
+    {          
         transform.position += Vector3.up * hInput * speed * Time.deltaTime;
         if (transform.position.y <= -0.85f && transform.position.y >= -4.0f)    
-            transform.position += Vector3.right * wInput * speed * Time.deltaTime;
-        
-             
+            transform.position += Vector3.right * wInput * speed * Time.deltaTime;                    
     }
 
     void setNormalWeaponAttributes()
@@ -220,13 +215,13 @@ public class PlayerController : MonoBehaviour
         myWeapon.GetComponent<GunController>().Shoot();
         weaponsManager.GetComponent<WeaponsController>().setTextBulletNum(myWeapon.GetComponent<GunController>().getBulletNum());
         soundManager.GetComponent<SoundsManager>().playGunSound(myWeapon.name);
-        Debug.Log(myWeapon.name);
     }
 
     void PowerShoot()
     {  
         powerManager.GetComponent<PowerController>().resetPowerNum();
-        myWeapon.GetComponent<GunController>().PowerShoot();     
+        myWeapon.GetComponent<GunController>().PowerShoot();
+        soundManager.GetComponent<SoundsManager>().playGunSound(myWeapon.name);
     }
 
     void Throw()
